@@ -211,12 +211,11 @@ class MyHomePage extends StatelessWidget {
               color: Colors.red,
               child: Row(
                 children: <Widget>[
-                  // Container(
-                  //   child: new Image.asset('images/newyear.png'),
-                  //   height: 50,
-                  //   width: 100,
-                  //
-                  // ),
+                  Container(
+                    child: new Image.asset('assets/images/newyear.png'),
+                    height: 50,
+                    width: 100,
+                  ),
                   Text(
                     "Groceries",
                     style: TextStyle(
