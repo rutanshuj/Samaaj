@@ -172,11 +172,13 @@
 // }
 
 import 'package:flutter/material.dart';
+import 'package:Samaaj/testapp.dart';
+import 'package:Samaaj/page2.dart';
+
 
 void main() {
   runApp(MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
   @override
@@ -193,53 +195,147 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
+
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     child:
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text('SAMPLE'),
-        ),
-        body: Column(
-          children: [
-            Container(
-              height: 100,
-              width: double.infinity,
-              alignment: Alignment.center,
-              color: Colors.red,
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    child: new Image.asset('assets/images/newyear.png'),
-                    height: 50,
-                    width: 100,
-                  ),
-                  Text(
-                    "Groceries",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 35,
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('Home'),
+      ),
+      body: Column(
+        children: <Widget>[
+          Container(
+            height: 100,
+            width: double.infinity,
+            alignment: Alignment.center,
+            color: Colors.red,
+            child: Row(
+              children: <Widget>[
+                Container(
+                  child: new Image.asset('assets/images/newyear.png'),
+                  height: 50,
+                  width: 200,
+                  alignment: Alignment.center,
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  child: Text("Groceries",
+                      style: TextStyle(color: Colors.white, fontSize: 35)),
+                  height: 100,
+                  width: 150,
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 10),
+          Container(
+            height: 100,
+            width: double.infinity,
+            alignment: Alignment.center,
+            color: Colors.red,
+            child: Text(
+              "Groceries",
+              style: TextStyle(color: Colors.white, fontSize: 35),
+            ),
+          ),
+          SizedBox(height: 10),
+          Container(
+            height: 200,
+            width: double.infinity,
+            color: Colors.white,
+            alignment: Alignment.center,
+            child:
+                FlatButton(
+                    color: Colors.blue,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(0.0),
+                      side: BorderSide(color: Colors.white, width: 1.0, style: BorderStyle.solid),
                     ),
-                  ),
-                ],
+                    padding: EdgeInsets.all(16.0),
+                    onPressed: (){
+                      Navigator.push(context, new MaterialPageRoute(
+                          builder:(context){ return Page1();}),
+                      );
+                    },
+                    child: Text(
+                      "Page1",
+                      style: TextStyle(fontSize: 30.0, color: Colors.white),
+                    ),
+                ),
+          ),
+          SizedBox(height: 10),
+          Container(
+            height: 200,
+            width: double.infinity,
+            color: Colors.white,
+            alignment: Alignment.center,
+            child:
+            FlatButton(
+              color: Colors.blue,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(0.0),
+                side: BorderSide(color: Colors.white, width: 1.0, style: BorderStyle.solid),
               ),
-            ),
-            SizedBox(height: 10),
-            Container(
-              height: 100,
-              width: double.infinity,
-              alignment: Alignment.center,
-              color: Colors.red,
+              padding: EdgeInsets.all(16.0),
+              onPressed: (){
+                Navigator.push(context, new MaterialPageRoute(
+                    builder:(context){ return Page2();}),
+                );
+              },
               child: Text(
-                "Groceries",
-                style: TextStyle(color: Colors.white, fontSize: 35),
+                "Page2",
+                style: TextStyle(fontSize: 30.0, color: Colors.white),
               ),
             ),
-            Container(),
-          ],
-        ));
+          )
+
+        ],
+      ),
+    );
   }
 }
+//
+// class Page1 extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//         appBar: AppBar(
+//           centerTitle: true,
+//           title: Text("Page 1"),
+//         ),
+//         floatingActionButton: FloatingActionButton(onPressed: (){ Navigator.pop(context);}),
+//         body: Container(
+//           child: Center(
+//             child: Text("Page1",
+//                 style: TextStyle(fontSize: 50.0,fontWeight: FontWeight.bold, color: Colors.black)
+//             ),
+//           ),
+//         )
+//     );
+//   }
+// }
+// class Page2 extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//         appBar: AppBar(
+//           centerTitle: true,
+//           title: Text("Page 2"),
+//         ),
+//         floatingActionButton: FloatingActionButton(onPressed: (){ Navigator.pop(context);}),
+//         body: Container(
+//           child: Center(
+//             child: Text("Page2",
+//                 style: TextStyle(fontSize: 50.0,fontWeight: FontWeight.bold, color: Colors.black)
+//             ),
+//           ),
+//         )
+//     );
+//   }
+// }
+
