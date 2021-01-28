@@ -174,7 +174,8 @@
 import 'package:flutter/material.dart';
 import 'package:Samaaj/testapp.dart';
 import 'package:Samaaj/page2.dart';
-
+import 'package:Samaaj/screen.dart';
+import 'package:Samaaj/screen2.dart';
 
 void main() {
   runApp(MyApp());
@@ -207,40 +208,55 @@ class MyHomePage extends StatelessWidget {
         centerTitle: true,
         title: const Text('Home'),
       ),
-      body: Column(
+      body: new ListView(
         children: <Widget>[
           Container(
-            height: 100,
+            height: 200,
             width: double.infinity,
+            color: Colors.white,
             alignment: Alignment.center,
-            color: Colors.red,
-            child: Row(
-              children: <Widget>[
-                Container(
-                  child: new Image.asset('assets/images/newyear.png'),
-                  height: 50,
-                  width: 200,
-                  alignment: Alignment.center,
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  child: Text("Groceries",
-                      style: TextStyle(color: Colors.white, fontSize: 35)),
-                  height: 100,
-                  width: 150,
-                ),
-              ],
+            child:
+            FlatButton(
+              color: Colors.blue,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(0.0),
+                side: BorderSide(color: Colors.white, width: 1.0, style: BorderStyle.solid),
+              ),
+              padding: EdgeInsets.all(16.0),
+              onPressed: (){
+                Navigator.push(context, new MaterialPageRoute(
+                    builder:(context){ return Screen();}),
+                );
+              },
+              child: Text(
+                "Screen",
+                style: TextStyle(fontSize: 30.0, color: Colors.white),
+              ),
             ),
           ),
           SizedBox(height: 10),
           Container(
-            height: 100,
+            height: 200,
             width: double.infinity,
+            color: Colors.white,
             alignment: Alignment.center,
-            color: Colors.red,
-            child: Text(
-              "Groceries",
-              style: TextStyle(color: Colors.white, fontSize: 35),
+            child:
+            FlatButton(
+              color: Colors.blue,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(0.0),
+                side: BorderSide(color: Colors.white, width: 1.0, style: BorderStyle.solid),
+              ),
+              padding: EdgeInsets.all(16.0),
+              onPressed: (){
+                Navigator.push(context, new MaterialPageRoute(
+                    builder:(context){ return Screen2();}),
+                );
+              },
+              child: Text(
+                "Screen2",
+                style: TextStyle(fontSize: 30.0, color: Colors.white),
+              ),
             ),
           ),
           SizedBox(height: 10),

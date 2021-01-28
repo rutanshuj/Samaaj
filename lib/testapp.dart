@@ -2,6 +2,37 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Page1 extends StatelessWidget {
+  Widget buildButton(String buttonText, double buttonHeight, Color buttonColor, String imageAsset) {
+    return Container(
+      padding: const EdgeInsets.all(0.0),
+      height: 70*buttonHeight,
+      width: 160,
+      child: RaisedButton(
+        color: buttonColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(0.0),
+          side: BorderSide(
+              color: Colors.green, width: 1.0, style: BorderStyle.solid),
+        ),
+        padding: EdgeInsets.all(16.0),
+        onPressed: () => null,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            new Image.asset(imageAsset),
+            Text(
+              buttonText,
+              softWrap: true,
+              style: TextStyle(
+                fontWeight: FontWeight.normal,
+                color: Colors.blueAccent,
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,7 +41,7 @@ class Page1 extends StatelessWidget {
         title: Text("Test Layout"),
       ),
       // floatingActionButton: FloatingActionButton(onPressed: (){ Navigator.pop(context);}),
-      body: ListView(
+      body: new ListView(
         padding: const EdgeInsets.all(8),
         children: <Widget>[
           Container(
@@ -21,227 +52,10 @@ class Page1 extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
-                  height: 100,
-                  child: Text("Daily items",
-                      style: TextStyle(
-                          fontSize: 60.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.blue)),
-                ),
-                SizedBox(height: 20),
-                GridView.count(
-                  padding: const EdgeInsets.all(20),
-                  primary: false,
-                  mainAxisSpacing: 20,
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 10,
-                  children: <Widget>[
-                    Container(
-                      height: 100,
-                      width: 150,
-                      color: Colors.redAccent,
-                      child: Row(
-                        children: [
-                          Container(
-                            child: new Image.asset('assets/images/Vegetables.png'),
-                            height: 50,
-                            width: 60,
-                            alignment: Alignment.center,
-                          ),
-                          SizedBox(height: 50,width: 10),
-                          Container(
-                            height: 50,
-                            width: 75,
-                            alignment: Alignment.center,
-                            child: Text("Fruits", style: TextStyle(fontSize: 20, color: Colors.black),),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      height: 100,
-                      width: 150,
-                      color: Colors.redAccent,
-                      child: Row(
-                        children: [
-                          Container(
-                            child: new Image.asset('assets/images/newyear.png'),
-                            height: 50,
-                            width: 60,
-                            alignment: Alignment.center,
-                          ),
-                          SizedBox(height: 50,width: 10),
-                          Container(
-                            height: 50,
-                            width: 75,
-                            alignment: Alignment.center,
-                            child: Text("Veggies", style: TextStyle(fontSize: 20, color: Colors.black),),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      height: 100,
-                      width: 150,
-                      color: Colors.redAccent,
-                      child: Row(
-                        children: [
-                          Container(
-                            child: new Image.asset('assets/images/newyear.png'),
-                            height: 50,
-                            width: 60,
-                            alignment: Alignment.center,
-                          ),
-                          SizedBox(height: 50,width: 10),
-                          Container(
-                            height: 50,
-                            width: 75,
-                            alignment: Alignment.center,
-                            child: Text("House items", style: TextStyle(fontSize: 20, color: Colors.black),),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 100,
-                      width: 20,
-                    ),
-                    Container(
-                      height: 100,
-                      width: 150,
-                      color: Colors.redAccent,
-                      child: Row(
-                        children: [
-                          Container(
-                            child: new Image.asset('assets/images/newyear.png'),
-                            height: 50,
-                            width: 60,
-                            alignment: Alignment.center,
-                          ),
-                          SizedBox(height: 50,width: 10),
-                          Container(
-                            height: 50,
-                            width: 75,
-                            alignment: Alignment.center,
-                            child: Text("furniture", style: TextStyle(fontSize: 20, color: Colors.black),),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      height: 100,
-                      width: 150,
-                      color: Colors.redAccent,
-                      child: Row(
-                        children: [
-                          Container(
-                            child: new Image.asset('assets/images/newyear.png'),
-                            height: 50,
-                            width: 60,
-                            alignment: Alignment.center,
-                          ),
-                          SizedBox(height: 50,width: 10),
-                          Container(
-                            height: 50,
-                            width: 75,
-                            alignment: Alignment.center,
-                            child: Text("Stationary", style: TextStyle(fontSize: 20, color: Colors.black),),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 100,
-                      width: 20,
-                    ),
-                    Container(
-                      height: 100,
-                      width: 150,
-                      color: Colors.redAccent,
-                      child: Row(
-                        children: [
-                          Container(
-                            child: new Image.asset('assets/images/newyear.png'),
-                            height: 50,
-                            width: 60,
-                            alignment: Alignment.center,
-                          ),
-                          SizedBox(height: 50,width: 10),
-                          Container(
-                            height: 50,
-                            width: 75,
-                            alignment: Alignment.center,
-                            child: Text("Supermarkets", style: TextStyle(fontSize: 20, color: Colors.black),),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      height: 100,
-                      width: 150,
-                      color: Colors.redAccent,
-                      child: Row(
-                        children: [
-                          Container(
-                            child: new Image.asset('assets/images/newyear.png'),
-                            height: 50,
-                            width: 60,
-                            alignment: Alignment.center,
-                          ),
-                          SizedBox(height: 50,width: 10),
-                          Container(
-                            height: 50,
-                            width: 75,
-                            alignment: Alignment.center,
-                            child: Text("Hardware", style: TextStyle(fontSize: 20, color: Colors.black),),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 100,
-                      width: 20,
-                    ),
-                    Container(
-                      height: 100,
-                      width: 150,
-                      color: Colors.redAccent,
-                      child: Row(
-                        children: [
-                          Container(
-                            child: new Image.asset('assets/images/newyear.png'),
-                            height: 50,
-                            width: 60,
-                            alignment: Alignment.center,
-                          ),
-                          SizedBox(height: 50,width: 10),
-                          Container(
-                            height: 50,
-                            width: 75,
-                            alignment: Alignment.center,
-                            child: Text("Miscellanious", style: TextStyle(fontSize: 20, color: Colors.black),),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 50),
-          Container(
-            height: 600,
-            width: double.infinity,
-            color: Colors.black12,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  height: 100,
+                  height: 80,
                   child: Text("People",
                       style: TextStyle(
-                          fontSize: 60.0,
+                          fontSize: 40.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.blue)),
                 ),
@@ -249,192 +63,101 @@ class Page1 extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Container(
-                      height: 100,
-                      width: 150,
-                      color: Colors.redAccent,
-                      child: Row(
-                        children: [
-                          Container(
-                            child: new Image.asset('assets/images/newyear.png'),
-                            height: 50,
-                            width: 60,
-                            alignment: Alignment.center,
-                          ),
-                          SizedBox(height: 50,width: 10),
-                          Container(
-                            height: 50,
-                            width: 75,
-                            alignment: Alignment.center,
-                            child: Text("House cleaner", style: TextStyle(fontSize: 20, color: Colors.black),),
-                          ),
-                        ],
-                      ),
-                    ),
+                    buildButton("Vegetables", 1, Colors.blueGrey[200], "assets/images/Vegetables.png"),
                     SizedBox(
-                      height: 100,
+                      height: 70,
                       width: 20,
                     ),
-                    Container(
-                      height: 100,
-                      width: 150,
-                      color: Colors.redAccent,
-                      child: Row(
-                        children: [
-                          Container(
-                            child: new Image.asset('assets/images/newyear.png'),
-                            height: 50,
-                            width: 60,
-                            alignment: Alignment.center,
-                          ),
-                          SizedBox(height: 50,width: 10),
-                          Container(
-                            height: 50,
-                            width: 75,
-                            alignment: Alignment.center,
-                            child: Text("Cook", style: TextStyle(fontSize: 20, color: Colors.black),),
-                          ),
-                        ],
-                      ),
-                    ),
+                    buildButton("Dhobi", 1, Colors.blueGrey[200], "assets/images/Dhibi.png"),
                   ],
                 ),
                 SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Container(
-                      height: 100,
-                      width: 150,
-                      color: Colors.redAccent,
-                      child: Row(
-                        children: [
-                          Container(
-                            child: new Image.asset('assets/images/newyear.png'),
-                            height: 50,
-                            width: 60,
-                            alignment: Alignment.center,
-                          ),
-                          SizedBox(height: 50,width: 10),
-                          Container(
-                            height: 50,
-                            width: 75,
-                            alignment: Alignment.center,
-                            child: Text("Car washer", style: TextStyle(fontSize: 20, color: Colors.black),),
-                          ),
-                        ],
-                      ),
-                    ),
+                    buildButton("Presswala", 1, Colors.blueGrey[200], "assets/images/Press.png"),
                     SizedBox(
-                      height: 100,
+                      height: 70,
                       width: 20,
                     ),
-                    Container(
-                      height: 100,
-                      width: 150,
-                      color: Colors.redAccent,
-                      child: Row(
-                        children: [
-                          Container(
-                            child: new Image.asset('assets/images/newyear.png'),
-                            height: 50,
-                            width: 60,
-                            alignment: Alignment.center,
-                          ),
-                          SizedBox(height: 50,width: 10),
-                          Container(
-                            height: 50,
-                            width: 75,
-                            alignment: Alignment.center,
-                            child: Text("Plumber", style: TextStyle(fontSize: 20, color: Colors.black),),
-                          ),
-                        ],
-                      ),
-                    ),
+                    buildButton("Maids", 1, Colors.blueGrey[200], "assets/images/Maid.png"),
                   ],
                 ),
                 SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Container(
-                      height: 100,
-                      width: 150,
-                      color: Colors.redAccent,
-                      child: Row(
-                        children: [
-                          Container(
-                            child: new Image.asset('assets/images/newyear.png'),
-                            height: 50,
-                            width: 60,
-                            alignment: Alignment.center,
-                          ),
-                          SizedBox(height: 50,width: 10),
-                          Container(
-                            height: 50,
-                            width: 75,
-                            alignment: Alignment.center,
-                            child: Text("Electrition", style: TextStyle(fontSize: 20, color: Colors.black),),
-                          ),
-                        ],
-                      ),
-                    ),
+                    buildButton("Drivers", 1, Colors.blueGrey[200], "assets/images/Driver.png"),
                     SizedBox(
-                      height: 100,
+                      height: 70,
                       width: 20,
                     ),
-                    Container(
-                      height: 100,
-                      width: 150,
-                      color: Colors.redAccent,
-                      child: Row(
-                        children: [
-                          Container(
-                            child: new Image.asset('assets/images/newyear.png'),
-                            height: 50,
-                            width: 60,
-                            alignment: Alignment.center,
-                          ),
-                          SizedBox(height: 50,width: 10),
-                          Container(
-                            height: 50,
-                            width: 75,
-                            alignment: Alignment.center,
-                            child: Text("Carpenter", style: TextStyle(fontSize: 20, color: Colors.black),),
-                          ),
-                        ],
-                      ),
-                    ),
+                    buildButton("Security", 1, Colors.blueGrey[200], "assets/images/Security.png"),
                   ],
                 ),
                 SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Container(
-                      height: 100,
-                      width: 150,
-                      color: Colors.redAccent,
-                      child: Row(
-                        children: [
-                          Container(
-                            child: new Image.asset('assets/images/newyear.png'),
-                            height: 50,
-                            width: 60,
-                            alignment: Alignment.center,
-                          ),
-                          SizedBox(height: 50,width: 10),
-                          Container(
-                            height: 50,
-                            width: 75,
-                            alignment: Alignment.center,
-                            child: Text("Miscellanious", style: TextStyle(fontSize: 20, color: Colors.black),),
-                          ),
-                        ],
-                      ),
+                    buildButton("Plumbers", 1, Colors.blueGrey[200], "assets/images/Plumber.png"),
+                    SizedBox(
+                      height: 70,
+                      width: 20,
                     ),
+                    buildButton("Electrician", 1, Colors.blueGrey[200], "assets/images/Electrician.png")
+                        ],
+                ),
+              ],
+            ),
+            ),
+          SizedBox(height: 50),
+          Container(
+            height: 600,
+            width: double.infinity,
+            color: Colors.black12,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  height: 80,
+                  child: Text("Brick and Motar",
+                      style: TextStyle(
+                          fontSize: 40.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blue)),
+                ),
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    buildButton("Hospitals", 1, Colors.blueGrey[200], "assets/images/Hospital.png"),
+                    SizedBox(
+                      height: 100,
+                      width: 20,
+                    ),
+                    buildButton("Pharmacy", 1, Colors.blueGrey[200], "assets/images/Pharmacy.png"),
                   ],
                 ),
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    buildButton("Hardware", 1, Colors.blueGrey[200], "assets/images/Hardware.png"),
+                    SizedBox(
+                      height: 100,
+                      width: 20,
+                    ),
+                    buildButton("Groceries", 1, Colors.blueGrey[200], "assets/images/Grocery.png"),
+                  ],
+                ),
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    buildButton("Stationary", 1, Colors.blueGrey[200], "assets/images/Stationary.png"),
+                  ],
+                ),
+
               ],
             ),
           ),
@@ -448,9 +171,10 @@ class Page1 extends StatelessWidget {
               children: <Widget>[
                 Container(
                   height: 100,
-                  child: Text("Services",
+                  child: Text("Events and Entertainment",
+                      textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 60.0,
+                          fontSize: 40.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.blue)),
                 ),
@@ -458,162 +182,36 @@ class Page1 extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Container(
-                      height: 100,
-                      width: 150,
-                      color: Colors.redAccent,
-                      child: Row(
-                        children: [
-                          Container(
-                            child: new Image.asset('assets/images/newyear.png'),
-                            height: 50,
-                            width: 60,
-                            alignment: Alignment.center,
-                          ),
-                          SizedBox(height: 50,width: 10),
-                          Container(
-                            height: 50,
-                            width: 75,
-                            alignment: Alignment.center,
-                            child: Text("Restaurants", style: TextStyle(fontSize: 20, color: Colors.black),),
-                          ),
-                        ],
-                      ),
-                    ),
+                    buildButton("Dancers", 1, Colors.blueGrey[200], "assets/images/Dance.png"),
                     SizedBox(
                       height: 100,
                       width: 20,
                     ),
-                    Container(
-                      height: 100,
-                      width: 150,
-                      color: Colors.redAccent,
-                      child: Row(
-                        children: [
-                          Container(
-                            child: new Image.asset('assets/images/newyear.png'),
-                            height: 50,
-                            width: 60,
-                            alignment: Alignment.center,
-                          ),
-                          SizedBox(height: 50,width: 10),
-                          Container(
-                            height: 50,
-                            width: 75,
-                            alignment: Alignment.center,
-                            child: Text("cloth shops", style: TextStyle(fontSize: 20, color: Colors.black),),
-                          ),
-                        ],
-                      ),
-                    ),
+                    buildButton("Singers", 1, Colors.blueGrey[200], "assets/images/Singer.png"),
                   ],
                 ),
                 SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Container(
-                      height: 100,
-                      width: 150,
-                      color: Colors.redAccent,
-                      child: Row(
-                        children: [
-                          Container(
-                            child: new Image.asset('assets/images/newyear.png'),
-                            height: 50,
-                            width: 60,
-                            alignment: Alignment.center,
-                          ),
-                          SizedBox(height: 50,width: 10),
-                          Container(
-                            height: 50,
-                            width: 75,
-                            alignment: Alignment.center,
-                            child: Text("foot wear", style: TextStyle(fontSize: 20, color: Colors.black),),
-                          ),
-                        ],
-                      ),
-                    ),
+                    buildButton("Stand up", 1, Colors.blueGrey[200], "assets/images/Comedy.png"),
                     SizedBox(
                       height: 100,
                       width: 20,
                     ),
-                    Container(
-                      height: 100,
-                      width: 150,
-                      color: Colors.redAccent,
-                      child: Row(
-                        children: [
-                          Container(
-                            child: new Image.asset('assets/images/newyear.png'),
-                            height: 50,
-                            width: 60,
-                            alignment: Alignment.center,
-                          ),
-                          SizedBox(height: 50,width: 10),
-                          Container(
-                            height: 50,
-                            width: 75,
-                            alignment: Alignment.center,
-                            child: Text("Beauty parlour", style: TextStyle(fontSize: 20, color: Colors.black),),
-                          ),
-                        ],
-                      ),
-                    ),
+                    buildButton("Organizers", 1, Colors.blueGrey[200], "assets/images/manager.png"),
                   ],
                 ),
                 SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Container(
-                      height: 100,
-                      width: 150,
-                      color: Colors.redAccent,
-                      child: Row(
-                        children: [
-                          Container(
-                            child: new Image.asset('assets/images/newyear.png'),
-                            height: 50,
-                            width: 60,
-                            alignment: Alignment.center,
-                          ),
-                          SizedBox(height: 50,width: 10),
-                          Container(
-                            height: 50,
-                            width: 75,
-                            alignment: Alignment.center,
-                            child: Text("Tuitons", style: TextStyle(fontSize: 20, color: Colors.black),),
-                          ),
-                        ],
-                      ),
-                    ),
+                    buildButton("Magicians", 1, Colors.blueGrey[200], "assets/images/Magic.png"),
                     SizedBox(
                       height: 100,
                       width: 20,
                     ),
-                    Container(
-                      height: 100,
-                      width: 150,
-                      color: Colors.redAccent,
-                      child: Row(
-                        children: [
-                          Container(
-                            child: new Image.asset('assets/images/newyear.png'),
-                            height: 50,
-                            width: 60,
-                            alignment: Alignment.center,
-                          ),
-                          SizedBox(height: 50,width: 10),
-                          Container(
-                            height: 50,
-                            width: 75,
-                            alignment: Alignment.center,
-                            child: Text("Other classes", style: TextStyle(fontSize: 20, color: Colors.black),),
-                          ),
-                        ],
-                      ),
-                    ),
+                    buildButton("Anchors", 1, Colors.blueGrey[200], "assets/images/manager.png"),
                   ],
                 ),
               ],
