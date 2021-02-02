@@ -69,7 +69,9 @@ class Screen extends StatelessWidget {
             area: area[index],
           );
         },
-        separatorBuilder: (BuildContext context, int index) => const Divider(),
+        separatorBuilder: (BuildContext context, int index) => const SizedBox(
+          height: 10,
+        ),
       ),
     );
   }

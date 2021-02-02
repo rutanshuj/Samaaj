@@ -176,6 +176,7 @@ import 'package:Samaaj/testapp.dart';
 import 'package:Samaaj/page2.dart';
 import 'package:Samaaj/screen.dart';
 import 'package:Samaaj/screen2.dart';
+import 'package:flutter_search_bar/flutter_search_bar.dart';
 
 void main() {
   runApp(MyApp());
