@@ -176,6 +176,7 @@ import 'package:Samaaj/testapp.dart';
 import 'package:Samaaj/page2.dart';
 import 'package:Samaaj/screen.dart';
 import 'package:Samaaj/screen2.dart';
+import 'package:Samaaj/detailspage.dart';
 import 'package:flutter_search_bar/flutter_search_bar.dart';
 
 void main() {
@@ -306,6 +307,31 @@ class MyHomePage extends StatelessWidget {
               },
               child: Text(
                 "Page2",
+                style: TextStyle(fontSize: 30.0, color: Colors.white),
+              ),
+            ),
+          ),
+          SizedBox(height: 10),
+          Container(
+            height: 200,
+            width: double.infinity,
+            color: Colors.white,
+            alignment: Alignment.center,
+            child:
+            FlatButton(
+              color: Colors.blue,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(0.0),
+                side: BorderSide(color: Colors.white, width: 1.0, style: BorderStyle.solid),
+              ),
+              padding: EdgeInsets.all(16.0),
+              onPressed: (){
+                Navigator.push(context, new MaterialPageRoute(
+                    builder:(context){ return DetailsPage();}),
+                );
+              },
+              child: Text(
+                "Detailspage",
                 style: TextStyle(fontSize: 30.0, color: Colors.white),
               ),
             ),
