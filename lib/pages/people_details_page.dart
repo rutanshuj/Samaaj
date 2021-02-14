@@ -30,7 +30,7 @@ class _PeopleDetailsPageState extends State<PeopleDetailsPage> {
                   Center(
                     child: CircleAvatar(
                       backgroundColor: Colors.white,
-                      radius: MediaQuery.of(context).size.width * 0.18,
+                      radius: MediaQuery.of(context).size.width * 0.14,
                     ),
                   ),
                   Padding(
@@ -124,178 +124,183 @@ class _PeopleDetailsPageState extends State<PeopleDetailsPage> {
               ),
             ),
           ),
-          SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Details',
-                    style: TextStyle(
-                      color: Colors.blue[900],
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.bold,
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Details',
+                        style: TextStyle(
+                          color: Colors.blue[900],
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    textAlign: TextAlign.center,
-                  ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Working Hours- ',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                            ),
+                          ),
+                          Text(
+                            '9 AM to 11 PM',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    SizedBox(height: 5.0,),
+
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Areas Served- ',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                            ),
+                          ),
+                          Text(
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    SizedBox(height: 5.0,),
+
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Gender- ',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                            ),
+                          ),
+                          Text(
+                            'Male',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    SizedBox(height: 5.0,),
+
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Languages- ',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                            ),
+                          ),
+                          Text(
+                            'Hinid',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+
+                          Text(
+                            'English',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+
+                          Text(
+                            'Marathi',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    SizedBox(height: 5.0,),
+
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Payment Options- ',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                            ),
+                          ),
+                          Text(
+                            'Cash',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+
+                          Text(
+                            'Google Pay, PhonePe, Amazon Pay',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Working Hours- ',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                        ),
-                      ),
-                      Text(
-                        '9 AM to 11 PM',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                SizedBox(height: 5.0,),
-
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Areas Served- ',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                        ),
-                      ),
-                      Text(
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                SizedBox(height: 5.0,),
-
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Gender- ',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                        ),
-                      ),
-                      Text(
-                        'Male',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                SizedBox(height: 5.0,),
-
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Languages- ',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                        ),
-                      ),
-                      Text(
-                        'Hinid',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-
-                      Text(
-                        'English',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-
-                      Text(
-                        'Marathi',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                SizedBox(height: 5.0,),
-
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Payment Options- ',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                        ),
-                      ),
-                      Text(
-                        'Cash',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-
-                      Text(
-                        'Google Pay, PhonePe, Amazon Pay',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-              ],
+              ),
             ),
           ),
         ],

@@ -1,6 +1,7 @@
 import 'package:Samaaj/pages/people_page.dart';
 import 'package:Samaaj/pages/shop_page.dart';
 import 'package:flutter/material.dart';
+import 'package:websafe_svg/websafe_svg.dart';
 
 class CategoryDisplayWidget extends StatefulWidget {
 
@@ -82,8 +83,8 @@ class _CategoryDisplayWidgetState extends State<CategoryDisplayWidget> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Icon(
-                          Icons.perm_contact_calendar,
+                        WebsafeSvg.asset(
+                          widget.categoryDetails[index]['assetSVGPath'],
                         ),
                         Flexible(
                           child: Padding(

@@ -104,39 +104,48 @@ class _HomePageState extends State<HomePage> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     CategoryDisplayWidget(
+
                       title: 'People',
                       categoryDetails: [
                         {
                           'type': 'vendor',
                           'name': 'Vegetable Vendors',
+                          'assetSVGPath': 'assets/svg_icons/shop.svg',
                         },
                         {
                           'type': 'vendor',
                           'name': 'Dhobi',
+                          'assetSVGPath': 'assets/svg_icons/dhobi.svg',
                         },
                         {
                           'type': 'vendor',
                           'name': 'Presswala',
+                          'assetSVGPath': 'assets/svg_icons/ironing-board.svg',
                         },
                         {
                           'type': 'vendor',
                           'name': 'Domestic Help',
+                          'assetSVGPath': 'assets/svg_icons/mop.svg',
                         },
                         {
                           'type': 'vendor',
                           'name': 'Drivers',
+                          'assetSVGPath': 'assets/svg_icons/driver.svg',
                         },
                         {
                           'type': 'vendor',
                           'name': 'Security Gaurds',
+                          'assetSVGPath': 'assets/svg_icons/policeman.svg',
                         },
                         {
                           'type': 'vendor',
                           'name': 'Plumbers',
+                          'assetSVGPath': 'assets/svg_icons/plumber.svg',
                         },
                         {
                           'type': 'vendor',
                           'name': 'Electricians',
+                          'assetSVGPath': 'assets/svg_icons/electrician.svg',
                         },
                       ],
                     ),
@@ -146,26 +155,27 @@ class _HomePageState extends State<HomePage> {
                         {
                           'type': 'shop',
                           'name': 'Hospitals',
+                          'assetSVGPath': 'assets/svg_icons/hospital.svg',
                         },
                         {
                           'type': 'shop',
                           'name': 'Pharmacies',
+                          'assetSVGPath': 'assets/svg_icons/pharmacy.svg',
                         },
                         {
                           'type': 'shop',
                           'name': 'Hardware Shops',
-                        },
-                        {
-                          'type': 'shop',
-                          'name': 'Domestic Help',
+                          'assetSVGPath': 'assets/svg_icons/hardware_shop.svg',
                         },
                         {
                           'type': 'shop',
                           'name': 'Groceries',
+                          'assetSVGPath': 'assets/svg_icons/groceries.svg',
                         },
                         {
                           'type': 'shop',
                           'name': 'Stationaries',
+                          'assetSVGPath': 'assets/svg_icons/stationary.svg',
                         },
                       ],
                     ),
@@ -175,26 +185,32 @@ class _HomePageState extends State<HomePage> {
                         {
                           'type': 'vendor',
                           'name': 'Dance Performers',
+                          'assetSVGPath': 'assets/svg_icons/dance.svg',
                         },
                         {
                           'type': 'vendor',
                           'name': 'Singers',
+                          'assetSVGPath': 'assets/svg_icons/singer.svg',
                         },
                         {
                           'type': 'vendor',
                           'name': 'Stand Up Comedians',
+                          'assetSVGPath': 'assets/svg_icons/standup_comedian.svg',
                         },
                         {
                           'type': 'vendor',
                           'name': 'Anchors',
+                          'assetSVGPath': 'assets/svg_icons/anchors.svg',
                         },
                         {
                           'type': 'vendor',
                           'name': 'Magicians',
+                          'assetSVGPath': 'assets/svg_icons/magician.svg',
                         },
                         {
                           'type': 'vendor',
                           'name': 'Event Organizers',
+                          'assetSVGPath': 'assets/svg_icons/event_organizers.svg',
                         },
                       ],
                     ),

@@ -126,196 +126,201 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
               ),
             ),
           ),
-          SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Details',
-                    style: TextStyle(
-                      color: Colors.blue[900],
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.bold,
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Details',
+                        style: TextStyle(
+                          color: Colors.blue[900],
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    textAlign: TextAlign.center,
-                  ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Store Timings- ',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                            ),
+                          ),
+                          Text(
+                            '9 AM to 11 PM',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    SizedBox(height: 5.0,),
+
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Areas Served- ',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                            ),
+                          ),
+                          Text(
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    SizedBox(height: 5.0,),
+
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Accessibility- ',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                            ),
+                          ),
+                          Text(
+                            'Wheelchair- accessible item',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    SizedBox(height: 5.0,),
+
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Service Options- ',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                            ),
+                          ),
+                          Text(
+                            'In-Store shopping',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+
+                          Text(
+                            'In-Store Pickup',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+
+                          Text(
+                            'Free Home Delivery',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    SizedBox(height: 5.0,),
+
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Payment Options- ',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                            ),
+                          ),
+                          Text(
+                            'Cash',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+
+                          Text(
+                            'Debit Card',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+
+                          Text(
+                            'Credit Card',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+
+                          Text(
+                            'Google Pay, PhonePe, Amazon Pay',
+                            style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Store Timings- ',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                        ),
-                      ),
-                      Text(
-                        '9 AM to 11 PM',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                SizedBox(height: 5.0,),
-
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Areas Served- ',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                        ),
-                      ),
-                      Text(
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                SizedBox(height: 5.0,),
-
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Accessibility- ',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                        ),
-                      ),
-                      Text(
-                        'Wheelchair- accessible item',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                SizedBox(height: 5.0,),
-
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Service Options- ',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                        ),
-                      ),
-                      Text(
-                        'In-Store shopping',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-
-                      Text(
-                        'In-Store Pickup',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-
-                      Text(
-                        'Free Home Delivery',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                SizedBox(height: 5.0,),
-
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Payment Options- ',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                        ),
-                      ),
-                      Text(
-                        'Cash',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-
-                      Text(
-                        'Debit Card',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-
-                      Text(
-                        'Credit Card',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-
-                      Text(
-                        'Google Pay, PhonePe, Amazon Pay',
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-              ],
+              ),
             ),
           ),
         ],

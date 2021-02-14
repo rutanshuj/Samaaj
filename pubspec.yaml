@@ -31,6 +31,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
   flutter_search_bar: ^2.1.0
+  websafe_svg: ^1.1.4
 
 dev_dependencies:
   flutter_test:
@@ -77,6 +78,7 @@ flutter:
   #
   assets:
       - assets/images/
+      - assets/svg_icons/
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
 
