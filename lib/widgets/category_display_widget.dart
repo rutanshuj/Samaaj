@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 class CategoryDisplayWidget extends StatefulWidget {
-
   final String title;
   final List<Map> categoryDetails;
 
@@ -36,15 +35,14 @@ class _CategoryDisplayWidgetState extends State<CategoryDisplayWidget> {
         ),
         GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10.0,
-            mainAxisSpacing: 5.0,
-            childAspectRatio: 2
-          ),
+              crossAxisCount: 2,
+              crossAxisSpacing: 10.0,
+              mainAxisSpacing: 5.0,
+              childAspectRatio: 2),
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
           itemCount: widget.categoryDetails.length,
-          itemBuilder: (context, index){
+          itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: Card(
@@ -53,28 +51,24 @@ class _CategoryDisplayWidgetState extends State<CategoryDisplayWidget> {
                   borderRadius: BorderRadius.circular(5.0),
                 ),
                 child: InkWell(
-                  onTap: (){
-                    if(widget.categoryDetails[index]['type'] == 'vendor') {
+                  onTap: () {
+                    if (widget.categoryDetails[index]['type'] == 'vendor') {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return PeoplePage(
-                              categoryType: widget.categoryDetails[index]['name'],
-                            );
-                          }
-                        ),
+                        MaterialPageRoute(builder: (context) {
+                          return PeoplePage(
+                            categoryType: widget.categoryDetails[index]['name'],
+                          );
+                        }),
                       );
                     } else {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return ShopPage(
-                              categoryType: widget.categoryDetails[index]['name'],
-                            );
-                          }
-                        ),
+                        MaterialPageRoute(builder: (context) {
+                          return ShopPage(
+                            categoryType: widget.categoryDetails[index]['name'],
+                          );
+                        }),
                       );
                     }
                   },
