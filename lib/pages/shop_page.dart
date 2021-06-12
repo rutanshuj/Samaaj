@@ -2,7 +2,6 @@ import 'package:Samaaj/pages/shop_details_page.dart';
 import 'package:flutter/material.dart';
 
 class ShopPage extends StatefulWidget {
-
   final String categoryType;
 
   ShopPage({@required this.categoryType});
@@ -12,7 +11,6 @@ class ShopPage extends StatefulWidget {
 }
 
 class _ShopPageState extends State<ShopPage> {
-
   String name;
 
   @override
@@ -22,12 +20,11 @@ class _ShopPageState extends State<ShopPage> {
         backgroundColor: Colors.blue[900],
         title: Text(
           widget.categoryType,
-          style: TextStyle(
-            color: Colors.white
-          ),
+          style: TextStyle(color: Colors.white),
         ),
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(MediaQuery.of(context).size.height * 0.08),
+          preferredSize:
+              Size.fromHeight(MediaQuery.of(context).size.height * 0.08),
           child: Center(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -57,7 +54,7 @@ class _ShopPageState extends State<ShopPage> {
                     ),
                     IconButton(
                       icon: Icon(Icons.search),
-                      onPressed: (){},
+                      onPressed: () {},
                     )
                   ],
                 ),
@@ -86,32 +83,30 @@ class _ShopPageState extends State<ShopPage> {
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 itemCount: 30,
-                itemBuilder: (context, index){
+                itemBuilder: (context, index) {
                   return Card(
                     elevation: 3.0,
                     shadowColor: Colors.blue,
                     child: InkWell(
-                      onTap: (){
+                      onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) {
-                                return ShopDetailsPage();
-                              }
-                          ),
+                          MaterialPageRoute(builder: (context) {
+                            return ShopDetailsPage();
+                          }),
                         );
                       },
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Container(
-                              height: 75,
-                              width: 75,
-                              color: Colors.blue.shade300,
-                            ),
-                          ),
+                          // Padding(
+                          //   padding: EdgeInsets.all(8.0),
+                          //   child: Container(
+                          //     height: 75,
+                          //     width: 75,
+                          //     color: Colors.blue.shade300,
+                          //   ),
+                          // ),
                           Flexible(
                             child: Padding(
                               padding: EdgeInsets.all(8.0),
@@ -128,7 +123,9 @@ class _ShopPageState extends State<ShopPage> {
                                     ),
                                     textAlign: TextAlign.start,
                                   ),
-                                  SizedBox(height: 15.0,),
+                                  SizedBox(
+                                    height: 15.0,
+                                  ),
                                   Text(
                                     '2.7km \t \t Area Name',
                                     style: TextStyle(
