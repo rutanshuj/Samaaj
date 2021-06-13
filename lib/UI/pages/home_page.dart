@@ -148,6 +148,9 @@ class _HomePageState extends State<HomePage> {
                 );
               },
             ),
+
+            ///This column is to keep the static content in the app
+            ///When all the content is dynamic, remove this column.
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [

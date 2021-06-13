@@ -3,6 +3,9 @@ import 'package:Samaaj/UI/pages/people_page.dart';
 import 'package:flutter/material.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
+
+///THIS WIDGET IS ONLY FOR STATIC CONTENT.
+
 class DebugCategoryDisplayWidget extends StatefulWidget {
   final String title;
   final List<Map> categoryDetails;

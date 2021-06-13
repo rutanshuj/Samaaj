@@ -1,6 +1,8 @@
 import 'package:Samaaj/UI/pages/debug_shop_details_page.dart';
 import 'package:flutter/material.dart';
 
+///THIS PAGE IS ONLY FOR STATIC CONTENT.
+
 class DebugShopPage extends StatefulWidget {
   final String categoryType;
 
