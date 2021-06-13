@@ -1,5 +1,8 @@
-import 'package:Samaaj/pages/home_page.dart';
+import 'package:Samaaj/view_models/master_category_list_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'UI/pages/home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +17,14 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePage(),
+      home: ChangeNotifierProvider(
+        create: (context){
+          return MasterCategoryListViewModel();
+        },
+        builder: (context, snapshot) {
+          return HomePage();
+        }
+      ),
       debugShowCheckedModeBanner: false,
     );
   }

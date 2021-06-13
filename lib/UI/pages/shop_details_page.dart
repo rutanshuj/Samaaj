@@ -1,128 +1,166 @@
+import 'package:Samaaj/utils/constants.dart';
+import 'package:Samaaj/view_models/data_point_details_view_model.dart';
+import 'package:Samaaj/view_models/data_point_view_model.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ShopDetailsPage extends StatefulWidget {
+
+  final DataPointViewModel dataModelViewPoint;
+  final String masterCategoryID;
+
+  const ShopDetailsPage({
+    Key key,
+    @required this.dataModelViewPoint,
+    @required this.masterCategoryID,
+  }) : super(key: key);
+
   @override
   _ShopDetailsPageState createState() => _ShopDetailsPageState();
 }
 
 class _ShopDetailsPageState extends State<ShopDetailsPage> {
+
+  DataPointViewModel _dataModelViewPoint;
+
+  @override
+  void initState() {
+    _dataModelViewPoint = widget.dataModelViewPoint;
+    final _vm = Provider.of<DataPointsDetailsViewModel>(context, listen: false);
+    _vm.getDataPointDetails(
+      masterCategoryID: widget.masterCategoryID,
+      dataPointID: _dataModelViewPoint.id,
+    );
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final _vm = Provider.of<DataPointsDetailsViewModel>(context);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue[900],
+        backgroundColor: Constants.customPrimaryColor,
         elevation: 0.0,
       ),
-      body: Column(
+      body: !_vm.isLoading ? Column(
         children: [
           Container(
             height: MediaQuery.of(context).size.height * 0.4,
             width: MediaQuery.of(context).size.width,
-            color: Colors.blue[900],
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.14),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start  ,
-                children: [
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    height: MediaQuery.of(context).size.height * 0.17,
-                    width: MediaQuery.of(context).size.width * 0.7,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10.0),
+            color: Constants.customPrimaryColor,
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.14),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start  ,
+                  children: [
+                    SizedBox(
+                      height: 20,
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      'Shop Name',
-                      style: TextStyle(
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.17,
+                      width: MediaQuery.of(context).size.width * 0.7,
+                      decoration: BoxDecoration(
                         color: Colors.white,
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.start,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Text(
-                      'Area Name',
-                      style: TextStyle(
-                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Text(
-                      'Phone +91 9876543210',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      FlatButton(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        '${_vm.datapointViewModel.fullName}',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
                         ),
-                        onPressed: (){},
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 12.0),
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.phone_callback_outlined,
-                                color: Colors.blue[900],
-                              ),
-                              Text(
-                                'Call',
-                                style: TextStyle(
-                                  color: Colors.blue[900],
+                        textAlign: TextAlign.start,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Text(
+                        '${_vm.datapointViewModel.area}',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Text(
+                        'Phone ${_vm.datapointViewModel.mobile1 ?? "Not Provided."}',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        TextButton(
+                          style: TextButton.styleFrom(
+                            primary: Colors.white,
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0),
+                            ),
+                          ),
+                          onPressed: (){},
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 12.0),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.phone_callback_outlined,
+                                  color: Constants.customPrimaryColor,
                                 ),
-                              )
-                            ],
+                                Text(
+                                  'Call',
+                                  style: TextStyle(
+                                    color: Constants.customPrimaryColor,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
-                      ),
 
-                      FlatButton(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
-                        onPressed: (){},
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 12.0),
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.share_outlined,
-                                color: Colors.blue[900],
-                              ),
-                              Text(
-                                'Share',
-                                style: TextStyle(
-                                  color: Colors.blue[900],
+                        TextButton(
+                          style: TextButton.styleFrom(
+                            primary: Colors.white,
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0),
+                            ),
+                          ),
+                          onPressed: (){},
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 12.0),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.share_outlined,
+                                  color: Constants.customPrimaryColor,
                                 ),
-                              )
-                            ],
+                                Text(
+                                  'Share',
+                                  style: TextStyle(
+                                    color: Constants.customPrimaryColor,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -138,7 +176,7 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
                       child: Text(
                         'Details',
                         style: TextStyle(
-                          color: Colors.blue[900],
+                          color: Constants.customPrimaryColor,
                           fontSize: 24.0,
                           fontWeight: FontWeight.bold,
                         ),
@@ -153,14 +191,14 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
                           Text(
                             'Store Timings- ',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                             ),
                           ),
                           Text(
-                            '9 AM to 11 PM',
+                            '${_vm.datapointViewModel.openHours ?? "Not Available"}',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -177,16 +215,16 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Areas Served- ',
+                            'Address- ',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                             ),
                           ),
                           Text(
-                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            '${_vm.datapointViewModel.address}',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -205,14 +243,14 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
                           Text(
                             'Accessibility- ',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                             ),
                           ),
                           Text(
                             'Wheelchair- accessible item',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -231,14 +269,14 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
                           Text(
                             'Service Options- ',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                             ),
                           ),
                           Text(
                             'In-Store shopping',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -247,7 +285,7 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
                           Text(
                             'In-Store Pickup',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -256,7 +294,7 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
                           Text(
                             'Free Home Delivery',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -275,14 +313,14 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
                           Text(
                             'Payment Options- ',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                             ),
                           ),
                           Text(
                             'Cash',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -291,7 +329,7 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
                           Text(
                             'Debit Card',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -300,7 +338,7 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
                           Text(
                             'Credit Card',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -309,7 +347,7 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
                           Text(
                             'Google Pay, PhonePe, Amazon Pay',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -324,6 +362,14 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
             ),
           ),
         ],
+      )
+          :
+      Center(
+        child: CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation<Color>(
+            Constants.customPrimaryColor,
+          ),
+        ),
       ),
     );
   }

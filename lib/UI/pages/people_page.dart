@@ -1,16 +1,18 @@
-import 'package:Samaaj/pages/shop_details_page.dart';
+import 'package:Samaaj/UI/pages/people_details_page.dart';
 import 'package:flutter/material.dart';
 
-class ShopPage extends StatefulWidget {
+class PeoplePage extends StatefulWidget {
+
   final String categoryType;
 
-  ShopPage({@required this.categoryType});
+  PeoplePage({@required this.categoryType});
 
   @override
-  _ShopPageState createState() => _ShopPageState();
+  _PeoplePageState createState() => _PeoplePageState();
 }
 
-class _ShopPageState extends State<ShopPage> {
+class _PeoplePageState extends State<PeoplePage> {
+
   String name;
 
   @override
@@ -20,11 +22,12 @@ class _ShopPageState extends State<ShopPage> {
         backgroundColor: Colors.blue[900],
         title: Text(
           widget.categoryType,
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(
+              color: Colors.white
+          ),
         ),
         bottom: PreferredSize(
-          preferredSize:
-              Size.fromHeight(MediaQuery.of(context).size.height * 0.08),
+          preferredSize: Size.fromHeight(MediaQuery.of(context).size.height * 0.08),
           child: Center(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -54,7 +57,7 @@ class _ShopPageState extends State<ShopPage> {
                     ),
                     IconButton(
                       icon: Icon(Icons.search),
-                      onPressed: () {},
+                      onPressed: (){},
                     )
                   ],
                 ),
@@ -83,30 +86,32 @@ class _ShopPageState extends State<ShopPage> {
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 itemCount: 30,
-                itemBuilder: (context, index) {
+                itemBuilder: (context, index){
                   return Card(
                     elevation: 3.0,
                     shadowColor: Colors.blue,
                     child: InkWell(
-                      onTap: () {
+                      onTap: (){
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) {
-                            return ShopDetailsPage();
-                          }),
+                          MaterialPageRoute(
+                              builder: (context) {
+                                return PeopleDetailsPage();
+                              }
+                          ),
                         );
                       },
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Padding(
-                          //   padding: EdgeInsets.all(8.0),
-                          //   child: Container(
-                          //     height: 75,
-                          //     width: 75,
-                          //     color: Colors.blue.shade300,
-                          //   ),
-                          // ),
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Container(
+                              height: 75,
+                              width: 75,
+                              color: Colors.blue.shade300,
+                            ),
+                          ),
                           Flexible(
                             child: Padding(
                               padding: EdgeInsets.all(8.0),
@@ -115,11 +120,21 @@ class _ShopPageState extends State<ShopPage> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Shop Name',
+                                    'Vendor Name',
                                     style: TextStyle(
                                       color: Colors.blue.shade900,
                                       fontSize: 18.0,
                                       fontWeight: FontWeight.bold,
+                                    ),
+                                    textAlign: TextAlign.start,
+                                  ),
+                                  SizedBox(
+                                    height: 5.0,
+                                  ),
+                                  Text(
+                                    'Vegetable Vendor',
+                                    style: TextStyle(
+                                      color: Colors.blue.shade900,
                                     ),
                                     textAlign: TextAlign.start,
                                   ),

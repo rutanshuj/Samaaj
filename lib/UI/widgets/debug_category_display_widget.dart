@@ -1,22 +1,22 @@
-import 'package:Samaaj/pages/people_page.dart';
-import 'package:Samaaj/pages/shop_page.dart';
+import 'package:Samaaj/UI/pages/degub_shop_page.dart';
+import 'package:Samaaj/UI/pages/people_page.dart';
 import 'package:flutter/material.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
-class CategoryDisplayWidget extends StatefulWidget {
+class DebugCategoryDisplayWidget extends StatefulWidget {
   final String title;
   final List<Map> categoryDetails;
 
-  CategoryDisplayWidget({
+  DebugCategoryDisplayWidget({
     @required this.title,
     @required this.categoryDetails,
   });
 
   @override
-  _CategoryDisplayWidgetState createState() => _CategoryDisplayWidgetState();
+  _DebugCategoryDisplayWidgetState createState() => _DebugCategoryDisplayWidgetState();
 }
 
-class _CategoryDisplayWidgetState extends State<CategoryDisplayWidget> {
+class _DebugCategoryDisplayWidgetState extends State<DebugCategoryDisplayWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -65,7 +65,7 @@ class _CategoryDisplayWidgetState extends State<CategoryDisplayWidget> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) {
-                          return ShopPage(
+                          return DebugShopPage(
                             categoryType: widget.categoryDetails[index]['name'],
                           );
                         }),
