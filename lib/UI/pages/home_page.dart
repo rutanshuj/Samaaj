@@ -1,4 +1,5 @@
 import 'package:Samaaj/UI/widgets/category_display_widget.dart';
+import 'package:Samaaj/UI/widgets/custom_search_box.dart';
 import 'package:Samaaj/UI/widgets/debug_category_display_widget.dart';
 import 'package:Samaaj/UI/widgets/search_category_display_widget.dart';
 import 'package:Samaaj/utils/constants.dart';
@@ -59,61 +60,15 @@ class _HomePageState extends State<HomePage> {
 //            crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.75,
-                    height: MediaQuery.of(context).size.height * 0.06,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(32.0),
-                    ),
-                    child: Row(
-                      children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.60,
-                          child: Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 8.0),
-                            child: TextFormField(
-                              controller: _tagController,
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                hintText: 'Search for Store/Item',
-                              ),
-                              onChanged: (String value) {
-                                if(value.isNotEmpty) {
-                                  _vm.getCategoryDataBySearch(tag: value);
-                                } else {
-                                  _vm.resetScreen();
-                                }
-                              },
-                            ),
-                          ),
-                        ),
-                        // IconButton(
-                        //   icon: _vm.isSearched ? Icon(
-                        //     Icons.cancel,
-                        //     color: Constants.customPrimaryColor,
-                        //   )
-                        //       :
-                        //   Icon(Icons.search),
-                        //   onPressed: () {
-                        //     if(!_vm.isSearched) {
-                        //       if(_tagController.text.isNotEmpty) {
-                        //         _vm.getCategoryDataBySearch(
-                        //           tag: _tagController.text,
-                        //         );
-                        //       }
-                        //     } else {
-                        //       _tagController.text = "";
-                        //       _vm.resetScreen();
-                        //     }
-                        //   },
-                        // )
-                      ],
-                    ),
-                  ),
+                CustomSearchBox(
+                  hintText: 'Search for Store/Item',
+                  onChanged: (String value) {
+                    if(value.isNotEmpty) {
+                      _vm.getCategoryDataBySearch(tag: value);
+                    } else {
+                      _vm.resetScreen();
+                    }
+                  },
                 ),
                 Padding(
                   padding: EdgeInsets.all(8.0),

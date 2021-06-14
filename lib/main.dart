@@ -1,3 +1,4 @@
+import 'package:Samaaj/UI/pages/splash_screen.dart';
 import 'package:Samaaj/view_models/master_category_list_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -17,14 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: ChangeNotifierProvider(
-        create: (context){
-          return MasterCategoryListViewModel();
-        },
-        builder: (context, snapshot) {
-          return HomePage();
-        }
-      ),
+      home: SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

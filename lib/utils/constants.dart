@@ -8,6 +8,8 @@ class Constants {
   static const String getDataPointDetails = "/read/details";
   static const String searchDataPoint = "/search";
 
+  static const String appLogo = "assets/images/samaaj_logo.png";
+
   static Color customPrimaryColor = Colors.blue[900];
 
   static ButtonStyle customDetailsPageTextButtonStyle = TextButton.styleFrom(

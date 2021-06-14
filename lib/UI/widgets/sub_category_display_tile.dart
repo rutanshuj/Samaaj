@@ -6,6 +6,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:websafe_svg/websafe_svg.dart';
 
 class SubCategoryDisplayTile extends StatelessWidget {
 
@@ -45,17 +46,26 @@ class SubCategoryDisplayTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
 
-                CachedNetworkImage(
-                  imageUrl: subCategoryViewModel.iconURL,
-                  placeholder: (context, child) {
-                    return Container(
-                      color: Constants.customPrimaryColor,
-                    );
-                  },
-                  errorWidget: (context, error,child) {
-                    return Container();
-                  },
+                WebsafeSvg.network(
+                  subCategoryViewModel.iconURL,
+                    placeholderBuilder: (context) {
+                      return Container(
+                        color: Constants.customPrimaryColor,
+                      );
+                    },
                 ),
+
+                // CachedNetworkImage(
+                //   imageUrl: subCategoryViewModel.iconURL,
+                //   placeholder: (context, child) {
+                //     return Container(
+                //       color: Constants.customPrimaryColor,
+                //     );
+                //   },
+                //   errorWidget: (context, error,child) {
+                //     return Container();
+                //   },
+                // ),
 
                 Flexible(
                   child: Padding(

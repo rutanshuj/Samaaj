@@ -1,4 +1,5 @@
 import 'package:Samaaj/UI/pages/shop_details_page.dart';
+import 'package:Samaaj/UI/widgets/custom_search_box.dart';
 import 'package:Samaaj/utils/constants.dart';
 import 'package:Samaaj/view_models/data_point_details_view_model.dart';
 import 'package:Samaaj/view_models/data_point_list_view_model.dart';
@@ -46,73 +47,23 @@ class _ShopPageState extends State<ShopPage> {
         bottom: PreferredSize(
           preferredSize:
               Size.fromHeight(MediaQuery.of(context).size.height * 0.08),
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                width: MediaQuery.of(context).size.width * 0.75,
-                height: MediaQuery.of(context).size.height * 0.06,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(32.0),
-                ),
-                child: Row(
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.60,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Search for Store/Item',
-                          ),
-                          controller: _tagController,
-                          onChanged: (value) {
-                            if (value.isNotEmpty) {
-                              _vm.getDataPointsListBySearch(
-                                subCategoryID: _subCategoryViewModel.id,
-                                tag: value,
-                              );
-                            } else {
-                              _vm.resetScreen(
-                                masterCategoryID: _subCategoryViewModel.masterCategoryID,
-                                subCategoryID: _subCategoryViewModel.id,
-                              );
-                            }
-                          },
-                        ),
-                      ),
-                    ),
-                    // IconButton(
-                    //   icon: !_vm.isSearch ? Icon(
-                    //     Icons.search,
-                    //   )
-                    //       :
-                    //   Icon(
-                    //     Icons.cancel,
-                    //     color: Constants.customPrimaryColor,
-                    //   ),
-                    //   onPressed: () {
-                    //     if(_vm.isSearch) {
-                    //       _tagController.text = "";
-                    //       _vm.resetScreen(
-                    //         masterCategoryID: _subCategoryViewModel.masterCategoryID,
-                    //         subCategoryID: _subCategoryViewModel.id,
-                    //       );
-                    //     } else {
-                    //       if(_tagController.text.isNotEmpty) {
-                    //         _vm.getDataPointsListBySearch(
-                    //           tag: _tagController.text,
-                    //           subCategoryID: _subCategoryViewModel.id,
-                    //         );
-                    //       }
-                    //     }
-                    //   },
-                    // )
-                  ],
-                ),
-              ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CustomSearchBox(
+              hintText: 'Search for Store/Item',
+              onChanged: (String value) {
+                if (value.isNotEmpty) {
+                  _vm.getDataPointsListBySearch(
+                    subCategoryID: _subCategoryViewModel.id,
+                    tag: value,
+                  );
+                } else {
+                  _vm.resetScreen(
+                    masterCategoryID: _subCategoryViewModel.masterCategoryID,
+                    subCategoryID: _subCategoryViewModel.id,
+                  );
+                }
+              },
             ),
           ),
         ),
