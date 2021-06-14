@@ -1,3 +1,4 @@
+import 'package:Samaaj/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class PeopleDetailsPage extends StatefulWidget {
@@ -69,11 +70,8 @@ class _PeopleDetailsPageState extends State<PeopleDetailsPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      FlatButton(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
+                      TextButton(
+                        style: Constants.customDetailsPageTextButtonStyle,
                         onPressed: (){},
                         child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 12.0),
@@ -94,11 +92,8 @@ class _PeopleDetailsPageState extends State<PeopleDetailsPage> {
                         ),
                       ),
 
-                      FlatButton(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
+                      TextButton(
+                        style: Constants.customDetailsPageTextButtonStyle,
                         onPressed: (){},
                         child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 12.0),

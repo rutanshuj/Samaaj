@@ -72,11 +72,8 @@ class _DebugShopDetailsPageState extends State<DebugShopDetailsPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      FlatButton(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
+                      TextButton(
+                        style: Constants.customDetailsPageTextButtonStyle,
                         onPressed: (){},
                         child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 12.0),
@@ -97,11 +94,8 @@ class _DebugShopDetailsPageState extends State<DebugShopDetailsPage> {
                         ),
                       ),
 
-                      FlatButton(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
+                      TextButton(
+                        style: Constants.customDetailsPageTextButtonStyle,
                         onPressed: (){},
                         child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 12.0),

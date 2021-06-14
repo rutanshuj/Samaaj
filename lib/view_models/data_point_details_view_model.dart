@@ -1,4 +1,3 @@
-import 'package:Samaaj/models/sub_category_data_point_model.dart';
 import 'package:Samaaj/view_models/data_point_view_model.dart';
 import 'package:Samaaj/web_services/backend_web_services.dart';
 import 'package:flutter/material.dart';
