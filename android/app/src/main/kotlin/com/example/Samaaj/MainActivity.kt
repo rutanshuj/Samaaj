@@ -1,4 +1,4 @@
-package com.example.Samaaj
+package com.samaaj.Samaaj
 
 import io.flutter.embedding.android.FlutterActivity
 
