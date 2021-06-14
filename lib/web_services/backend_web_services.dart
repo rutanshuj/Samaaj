@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 import 'package:Samaaj/models/master_category_model.dart';
 import 'package:Samaaj/models/sub_category_data_point_model.dart';
 import 'package:Samaaj/models/sub_category_model.dart';

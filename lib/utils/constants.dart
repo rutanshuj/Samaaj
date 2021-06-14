@@ -10,4 +10,12 @@ class Constants {
 
   static Color customPrimaryColor = Colors.blue[900];
 
+  static ButtonStyle customDetailsPageTextButtonStyle = TextButton.styleFrom(
+    primary: Colors.white,
+    backgroundColor: Colors.white,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(30.0),
+    ),
+  );
+
 }

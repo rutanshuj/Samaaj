@@ -103,13 +103,7 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         TextButton(
-                          style: TextButton.styleFrom(
-                            primary: Colors.white,
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30.0),
-                            ),
-                          ),
+                          style: Constants.customDetailsPageTextButtonStyle,
                           onPressed: (){},
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 12.0),
@@ -131,13 +125,7 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
                         ),
 
                         TextButton(
-                          style: TextButton.styleFrom(
-                            primary: Colors.white,
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30.0),
-                            ),
-                          ),
+                          style: Constants.customDetailsPageTextButtonStyle,
                           onPressed: (){},
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 12.0),
