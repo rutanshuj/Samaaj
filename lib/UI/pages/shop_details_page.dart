@@ -1,3 +1,5 @@
+import 'package:Samaaj/UI/widgets/phone_call_launch_button.dart';
+import 'package:Samaaj/UI/widgets/share_content_launch_button.dart';
 import 'package:Samaaj/utils/constants.dart';
 import 'package:Samaaj/view_models/data_point_details_view_model.dart';
 import 'package:Samaaj/view_models/data_point_view_model.dart';
@@ -46,7 +48,7 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
       body: !_vm.isLoading ? Column(
         children: [
           Container(
-            height: MediaQuery.of(context).size.height * 0.4,
+            height: MediaQuery.of(context).size.height * 0.25,
             width: MediaQuery.of(context).size.width,
             color: Constants.customPrimaryColor,
             child: SingleChildScrollView(
@@ -55,17 +57,6 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start  ,
                   children: [
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Container(
-                      height: MediaQuery.of(context).size.height * 0.17,
-                      width: MediaQuery.of(context).size.width * 0.7,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                    ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
@@ -100,50 +91,14 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
                       height: 10.0,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        TextButton(
-                          style: Constants.customDetailsPageTextButtonStyle,
-                          onPressed: (){},
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 12.0),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.phone_callback_outlined,
-                                  color: Constants.customPrimaryColor,
-                                ),
-                                Text(
-                                  'Call',
-                                  style: TextStyle(
-                                    color: Constants.customPrimaryColor,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
+                        PhoneCallLaunchButton(
+                          phoneNumber: _vm.datapointViewModel.mobile1.toString(),
                         ),
-
-                        TextButton(
-                          style: Constants.customDetailsPageTextButtonStyle,
-                          onPressed: (){},
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 12.0),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.share_outlined,
-                                  color: Constants.customPrimaryColor,
-                                ),
-                                Text(
-                                  'Share',
-                                  style: TextStyle(
-                                    color: Constants.customPrimaryColor,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
+                        Spacer(),
+                        ShareContentLaunchButton(
+                          dataPointViewModel: _vm.datapointViewModel,
                         ),
                       ],
                     ),

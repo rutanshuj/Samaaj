@@ -17,7 +17,7 @@ class _PeopleDetailsPageState extends State<PeopleDetailsPage> {
       body: Column(
         children: [
           Container(
-            height: MediaQuery.of(context).size.height * 0.4,
+            height: MediaQuery.of(context).size.height * 0.25,
             width: MediaQuery.of(context).size.width,
             color: Colors.blue[900],
             child: Padding(
@@ -25,15 +25,6 @@ class _PeopleDetailsPageState extends State<PeopleDetailsPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start  ,
                 children: [
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Center(
-                    child: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: MediaQuery.of(context).size.width * 0.14,
-                    ),
-                  ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
@@ -68,7 +59,7 @@ class _PeopleDetailsPageState extends State<PeopleDetailsPage> {
                     height: 10.0,
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       TextButton(
                         style: Constants.customDetailsPageTextButtonStyle,
@@ -91,7 +82,7 @@ class _PeopleDetailsPageState extends State<PeopleDetailsPage> {
                           ),
                         ),
                       ),
-
+                      Spacer(),
                       TextButton(
                         style: Constants.customDetailsPageTextButtonStyle,
                         onPressed: (){},

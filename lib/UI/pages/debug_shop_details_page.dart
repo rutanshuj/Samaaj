@@ -17,7 +17,7 @@ class _DebugShopDetailsPageState extends State<DebugShopDetailsPage> {
       body: Column(
         children: [
           Container(
-            height: MediaQuery.of(context).size.height * 0.4,
+            height: MediaQuery.of(context).size.height * 0.25,
             width: MediaQuery.of(context).size.width,
             color: Colors.blue[900],
             child: Padding(
@@ -25,17 +25,6 @@ class _DebugShopDetailsPageState extends State<DebugShopDetailsPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start  ,
                 children: [
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    height: MediaQuery.of(context).size.height * 0.17,
-                    width: MediaQuery.of(context).size.width * 0.7,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                  ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
@@ -70,7 +59,7 @@ class _DebugShopDetailsPageState extends State<DebugShopDetailsPage> {
                     height: 10.0,
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       TextButton(
                         style: Constants.customDetailsPageTextButtonStyle,
@@ -93,6 +82,8 @@ class _DebugShopDetailsPageState extends State<DebugShopDetailsPage> {
                           ),
                         ),
                       ),
+
+                      Spacer(),
 
                       TextButton(
                         style: Constants.customDetailsPageTextButtonStyle,
