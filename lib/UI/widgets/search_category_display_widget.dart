@@ -1,3 +1,4 @@
+import 'package:Samaaj/UI/widgets/custom_grid_view.dart';
 import 'package:Samaaj/utils/constants.dart';
 import 'package:Samaaj/view_models/sub_category_view_model.dart';
 import 'package:flutter/material.dart';
@@ -27,20 +28,10 @@ class SearchCategoryDisplayWidget extends StatelessWidget {
               fontSize: 18.0,
             ),
           ),
-        ), GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 10.0,
-              mainAxisSpacing: 5.0,
-              childAspectRatio: 1.9),
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          itemCount: categoryData.values.first.length,
-          itemBuilder: (context, index) {
-            return SubCategoryDisplayTile(
-              subCategoryViewModel: categoryData.values.first[index],
-            );
-          },
+        ),
+        CustomGridView(
+          length: categoryData.values.first.length,
+          subCategoryViewModelList: categoryData.values.first,
         ),
 
         Divider(

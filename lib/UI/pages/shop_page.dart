@@ -43,13 +43,7 @@ class _ShopPageState extends State<ShopPage> {
           _subCategoryViewModel.name,
           style: TextStyle(color: Colors.white),
         ),
-        bottom: _vm.isLoading ?
-        PreferredSize(
-          preferredSize: Size.zero,
-          child: Container(),
-        )
-            :
-        PreferredSize(
+        bottom: PreferredSize(
           preferredSize:
               Size.fromHeight(MediaQuery.of(context).size.height * 0.08),
           child: Center(
@@ -74,35 +68,48 @@ class _ShopPageState extends State<ShopPage> {
                             hintText: 'Search for Store/Item',
                           ),
                           controller: _tagController,
+                          onChanged: (value) {
+                            if (value.isNotEmpty) {
+                              _vm.getDataPointsListBySearch(
+                                subCategoryID: _subCategoryViewModel.id,
+                                tag: value,
+                              );
+                            } else {
+                              _vm.resetScreen(
+                                masterCategoryID: _subCategoryViewModel.masterCategoryID,
+                                subCategoryID: _subCategoryViewModel.id,
+                              );
+                            }
+                          },
                         ),
                       ),
                     ),
-                    IconButton(
-                      icon: !_vm.isSearch ? Icon(
-                        Icons.search,
-                      )
-                          :
-                      Icon(
-                        Icons.cancel,
-                        color: Constants.customPrimaryColor,
-                      ),
-                      onPressed: () {
-                        if(_vm.isSearch) {
-                          _tagController.text = "";
-                          _vm.resetScreen(
-                            masterCategoryID: _subCategoryViewModel.masterCategoryID,
-                            subCategoryID: _subCategoryViewModel.id,
-                          );
-                        } else {
-                          if(_tagController.text.isNotEmpty) {
-                            _vm.getDataPointsListBySearch(
-                              tag: _tagController.text,
-                              subCategoryID: _subCategoryViewModel.id,
-                            );
-                          }
-                        }
-                      },
-                    )
+                    // IconButton(
+                    //   icon: !_vm.isSearch ? Icon(
+                    //     Icons.search,
+                    //   )
+                    //       :
+                    //   Icon(
+                    //     Icons.cancel,
+                    //     color: Constants.customPrimaryColor,
+                    //   ),
+                    //   onPressed: () {
+                    //     if(_vm.isSearch) {
+                    //       _tagController.text = "";
+                    //       _vm.resetScreen(
+                    //         masterCategoryID: _subCategoryViewModel.masterCategoryID,
+                    //         subCategoryID: _subCategoryViewModel.id,
+                    //       );
+                    //     } else {
+                    //       if(_tagController.text.isNotEmpty) {
+                    //         _vm.getDataPointsListBySearch(
+                    //           tag: _tagController.text,
+                    //           subCategoryID: _subCategoryViewModel.id,
+                    //         );
+                    //       }
+                    //     }
+                    //   },
+                    // )
                   ],
                 ),
               ),

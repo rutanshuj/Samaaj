@@ -23,18 +23,23 @@ class MasterCategoryListViewModel extends ChangeNotifier {
   }
 
   getCategoryDataBySearch({String tag}) async{
+
+    List<Map<String, List<SubCategoryViewModel>>> _searchResultantList = [];
     this.isSearched = true;
-    this.searchResultantList.clear();
     setLoading();
     final result = await _backendWebServices.getCategoryDataBySearch(tag: tag);
+
     result.forEach((key, value) {
-      List<SubCategoryViewModel> _subCatViewModel = value.map((e) => SubCategoryViewModel(e)).toList();
+      List<SubCategoryViewModel> _subCatViewModel = [];
+      _subCatViewModel = value.map((e) => SubCategoryViewModel(e)).toList();
       Map<String, List<SubCategoryViewModel>> reqMap = {
         key: _subCatViewModel,
       };
-      searchResultantList.add(reqMap);
+      _searchResultantList.add(reqMap);
     });
+    this.searchResultantList = _searchResultantList;
     cancelLoading();
+    notifyListeners();
   }
 
 

@@ -52,13 +52,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ],
-          bottom: _vm.isLoading ?
-          PreferredSize(
-            child: Offstage(),
-            preferredSize: Size.zero,
-          )
-            :
-          PreferredSize(
+          bottom: PreferredSize(
             preferredSize:
                 Size.fromHeight(MediaQuery.of(context).size.height * 0.13),
             child: Column(
@@ -87,29 +81,36 @@ class _HomePageState extends State<HomePage> {
                                 border: InputBorder.none,
                                 hintText: 'Search for Store/Item',
                               ),
+                              onChanged: (String value) {
+                                if(value.isNotEmpty) {
+                                  _vm.getCategoryDataBySearch(tag: value);
+                                } else {
+                                  _vm.resetScreen();
+                                }
+                              },
                             ),
                           ),
                         ),
-                        IconButton(
-                          icon: _vm.isSearched ? Icon(
-                            Icons.cancel,
-                            color: Constants.customPrimaryColor,
-                          )
-                              :
-                          Icon(Icons.search),
-                          onPressed: () {
-                            if(!_vm.isSearched) {
-                              if(_tagController.text.isNotEmpty) {
-                                _vm.getCategoryDataBySearch(
-                                  tag: _tagController.text,
-                                );
-                              }
-                            } else {
-                              _tagController.text = "";
-                              _vm.resetScreen();
-                            }
-                          },
-                        )
+                        // IconButton(
+                        //   icon: _vm.isSearched ? Icon(
+                        //     Icons.cancel,
+                        //     color: Constants.customPrimaryColor,
+                        //   )
+                        //       :
+                        //   Icon(Icons.search),
+                        //   onPressed: () {
+                        //     if(!_vm.isSearched) {
+                        //       if(_tagController.text.isNotEmpty) {
+                        //         _vm.getCategoryDataBySearch(
+                        //           tag: _tagController.text,
+                        //         );
+                        //       }
+                        //     } else {
+                        //       _tagController.text = "";
+                        //       _vm.resetScreen();
+                        //     }
+                        //   },
+                        // )
                       ],
                     ),
                   ),

@@ -1,3 +1,4 @@
+import 'package:Samaaj/UI/widgets/custom_grid_view.dart';
 import 'package:Samaaj/UI/widgets/sub_category_display_tile.dart';
 import 'package:Samaaj/utils/constants.dart';
 import 'package:Samaaj/view_models/master_category_view_model.dart';
@@ -50,20 +51,11 @@ class _CategoryDisplayWidgetState extends State<CategoryDisplayWidget> {
             ),
           ),
         ),
-        !_vm.isLoading ? GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 10.0,
-              mainAxisSpacing: 5.0,
-              childAspectRatio: 1.9),
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          itemCount: _vm.subCategoryList.length,
-          itemBuilder: (context, index) {
-            return SubCategoryDisplayTile(
-              subCategoryViewModel: _vm.subCategoryList[index],
-            );
-          },
+        //_vm.subCategoryList.length
+        //_vm.subCategoryList[index]
+        !_vm.isLoading ? CustomGridView(
+            length: _vm.subCategoryList.length,
+            subCategoryViewModelList: _vm.subCategoryList,
         )
             :
         Container(

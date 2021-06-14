@@ -2,6 +2,7 @@ import 'package:Samaaj/UI/pages/shop_page.dart';
 import 'package:Samaaj/utils/constants.dart';
 import 'package:Samaaj/view_models/data_point_list_view_model.dart';
 import 'package:Samaaj/view_models/sub_category_view_model.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -59,8 +60,9 @@ class SubCategoryDisplayTile extends StatelessWidget {
                 Flexible(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text(
+                    child: AutoSizeText(
                       "${subCategoryViewModel.name}",
+                      maxLines: 3,
                       textAlign: TextAlign.end,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
