@@ -47,7 +47,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
-    version = getVersionNumber();
     super.initState();
     startTime();
   }
@@ -65,7 +64,7 @@ class _SplashScreenState extends State<SplashScreen> {
             Expanded(
               flex: 1,
               child: FutureBuilder(
-                future: version,
+                future: getVersionNumber(),
                 builder: (context, future) {
                   if(!future.hasData) {
                     return Container();
