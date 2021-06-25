@@ -33,15 +33,19 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Constants.customPrimaryColor,
           title: Row(
             children: [
-              Icon(
-                Icons.location_on,
+              Container(
+                height: MediaQuery.of(context).size.height * 0.07,
+                child: Image.asset(
+                  Constants.appLogo,
+                  fit: BoxFit.contain,
+                ),
               ),
               SizedBox(
                 height: 5.0,
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text('Address'),
+                child: Text('Samaaj'),
               ),
             ],
           ),
@@ -156,43 +160,43 @@ class _HomePageState extends State<HomePage> {
                     },
                   ],
                 ),
-                DebugCategoryDisplayWidget(
-                  title: 'Events and Entertainment',
-                  categoryDetails: [
-                    {
-                      'type': 'vendor',
-                      'name': 'Dance Performers',
-                      'assetSVGPath': 'assets/svg_icons/dance.svg',
-                    },
-                    {
-                      'type': 'vendor',
-                      'name': 'Singers',
-                      'assetSVGPath': 'assets/svg_icons/singer.svg',
-                    },
-                    {
-                      'type': 'vendor',
-                      'name': 'Stand Up Comedians',
-                      'assetSVGPath':
-                      'assets/svg_icons/standup_comedian.svg',
-                    },
-                    {
-                      'type': 'vendor',
-                      'name': 'Anchors',
-                      'assetSVGPath': 'assets/svg_icons/anchors.svg',
-                    },
-                    {
-                      'type': 'vendor',
-                      'name': 'Magicians',
-                      'assetSVGPath': 'assets/svg_icons/magician.svg',
-                    },
-                    {
-                      'type': 'vendor',
-                      'name': 'Event Organizers',
-                      'assetSVGPath':
-                      'assets/svg_icons/event_organizers.svg',
-                    },
-                  ],
-                ),
+                // DebugCategoryDisplayWidget(
+                //   title: 'Events and Entertainment',
+                //   categoryDetails: [
+                //     {
+                //       'type': 'vendor',
+                //       'name': 'Dance Performers',
+                //       'assetSVGPath': 'assets/svg_icons/dance.svg',
+                //     },
+                //     {
+                //       'type': 'vendor',
+                //       'name': 'Singers',
+                //       'assetSVGPath': 'assets/svg_icons/singer.svg',
+                //     },
+                //     {
+                //       'type': 'vendor',
+                //       'name': 'Stand Up Comedians',
+                //       'assetSVGPath':
+                //       'assets/svg_icons/standup_comedian.svg',
+                //     },
+                //     {
+                //       'type': 'vendor',
+                //       'name': 'Anchors',
+                //       'assetSVGPath': 'assets/svg_icons/anchors.svg',
+                //     },
+                //     {
+                //       'type': 'vendor',
+                //       'name': 'Magicians',
+                //       'assetSVGPath': 'assets/svg_icons/magician.svg',
+                //     },
+                //     {
+                //       'type': 'vendor',
+                //       'name': 'Event Organizers',
+                //       'assetSVGPath':
+                //       'assets/svg_icons/event_organizers.svg',
+                //     },
+                //   ],
+                // ),
               ],
             ),
           ],
