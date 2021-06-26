@@ -7,6 +7,7 @@ class Constants {
   static const String getSearchCategoryData = "/search";
   static const String getDataPointDetails = "/read/details";
   static const String searchDataPoint = "/search";
+  static const String postMessage = "/get-in-touch";
 
   static const String appLogo = "assets/images/samaaj_logo.png";
 

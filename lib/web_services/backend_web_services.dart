@@ -166,4 +166,26 @@ class BackendWebServices {
     }
   }
 
+
+  Future<void> postMessage({String message, String name, num phoneNumber, String email}) async {
+    Uri _uri = Uri.https(Constants.SECURED_ENDPOINT, Constants.postMessage);
+    print("here");
+    Map body = {
+      "email": email,
+      "mobileNo": phoneNumber,
+      "name": name,
+    };
+    print(jsonEncode(body));
+    Response _res = await post(
+      _uri,
+      body: jsonEncode(body),
+      headers: {
+        "Content-Type": "application/json",
+      }
+    );
+
+    print(_res.body);
+    print(_res.statusCode);
+  }
+
 }

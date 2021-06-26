@@ -1,8 +1,10 @@
+import 'package:Samaaj/UI/pages/about_us_page.dart';
 import 'package:Samaaj/UI/widgets/category_display_widget.dart';
 import 'package:Samaaj/UI/widgets/custom_search_box.dart';
 import 'package:Samaaj/UI/widgets/debug_category_display_widget.dart';
 import 'package:Samaaj/UI/widgets/search_category_display_widget.dart';
 import 'package:Samaaj/utils/constants.dart';
+import 'package:Samaaj/view_models/about_us_page_view_model.dart';
 import 'package:Samaaj/view_models/master_category_list_view_model.dart';
 import 'package:Samaaj/view_models/sub_category_list_view_model.dart';
 import 'package:flutter/material.dart';
@@ -52,8 +54,27 @@ class _HomePageState extends State<HomePage> {
           actions: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Icon(
-                Icons.person,
+              child: IconButton(
+                icon: Icon(
+                  Icons.person,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return ChangeNotifierProvider(
+                          create: (context) {
+                            return AboutUsPageViewModel();
+                          },
+                          builder: (context, _) {
+                            return AboutUsPage();
+                          },
+                        );
+                      }
+                    )
+                  );
+                },
               ),
             ),
           ],
