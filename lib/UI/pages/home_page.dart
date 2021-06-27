@@ -59,21 +59,7 @@ class _HomePageState extends State<HomePage> {
                   Icons.person,
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return ChangeNotifierProvider(
-                          create: (context) {
-                            return AboutUsPageViewModel();
-                          },
-                          builder: (context, _) {
-                            return AboutUsPage();
-                          },
-                        );
-                      }
-                    )
-                  );
+
                 },
               ),
             ),
@@ -109,140 +95,225 @@ class _HomePageState extends State<HomePage> {
             ),
           )),
       body: !_vm.isLoading ?
-      SingleChildScrollView(
-        child: !_vm.isSearched ? Column(
-          children: [
-            ListView.builder(
-              itemCount: _vm.masterCategoryList.length,
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) {
-                return ChangeNotifierProvider(
-                  create: (context) {
-                    return SubCategoryListViewModel();
-                  },
-                  builder: (context, snapshot) {
-                    return CategoryDisplayWidget(
-                      masterCategoryViewModel: _vm.masterCategoryList[index],
-                    );
-                  }
-                );
-              },
-            ),
-
-            ///This column is to keep the static content in the app
-            ///When all the content is dynamic, remove this column.
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+      Stack(
+        children: [
+          SingleChildScrollView(
+            child: !_vm.isSearched ? Column(
               children: [
-                DebugCategoryDisplayWidget(
-                  title: 'People',
-                  categoryDetails: [
-                    {
-                      'type': 'vendor',
-                      'name': 'Vegetable Vendors',
-                      'assetSVGPath': 'assets/svg_icons/shop.svg',
-                    },
-                    {
-                      'type': 'vendor',
-                      'name': 'Dhobi',
-                      'assetSVGPath': 'assets/svg_icons/dhobi.svg',
-                    },
-                    {
-                      'type': 'vendor',
-                      'name': 'Presswala',
-                      'assetSVGPath':
-                      'assets/svg_icons/ironing-board.svg',
-                    },
-                    {
-                      'type': 'vendor',
-                      'name': 'Domestic Help',
-                      'assetSVGPath': 'assets/svg_icons/mop.svg',
-                    },
-                    {
-                      'type': 'vendor',
-                      'name': 'Drivers',
-                      'assetSVGPath': 'assets/svg_icons/driver.svg',
-                    },
-                    {
-                      'type': 'vendor',
-                      'name': 'Security Gaurds',
-                      'assetSVGPath': 'assets/svg_icons/policeman.svg',
-                    },
-                    {
-                      'type': 'vendor',
-                      'name': 'Plumbers',
-                      'assetSVGPath': 'assets/svg_icons/plumber.svg',
-                    },
-                    {
-                      'type': 'vendor',
-                      'name': 'Electricians',
-                      'assetSVGPath': 'assets/svg_icons/electrician.svg',
-                    },
+                ListView.builder(
+                  itemCount: _vm.masterCategoryList.length,
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return ChangeNotifierProvider(
+                      create: (context) {
+                        return SubCategoryListViewModel();
+                      },
+                      builder: (context, snapshot) {
+                        return CategoryDisplayWidget(
+                          masterCategoryViewModel: _vm.masterCategoryList[index],
+                        );
+                      }
+                    );
+                  },
+                ),
+
+                ///This column is to keep the static content in the app
+                ///When all the content is dynamic, remove this column.
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    DebugCategoryDisplayWidget(
+                      title: 'People',
+                      categoryDetails: [
+                        {
+                          'type': 'vendor',
+                          'name': 'Vegetable Vendors',
+                          'assetSVGPath': 'assets/svg_icons/shop.svg',
+                        },
+                        {
+                          'type': 'vendor',
+                          'name': 'Dhobi',
+                          'assetSVGPath': 'assets/svg_icons/dhobi.svg',
+                        },
+                        {
+                          'type': 'vendor',
+                          'name': 'Presswala',
+                          'assetSVGPath':
+                          'assets/svg_icons/ironing-board.svg',
+                        },
+                        {
+                          'type': 'vendor',
+                          'name': 'Domestic Help',
+                          'assetSVGPath': 'assets/svg_icons/mop.svg',
+                        },
+                        {
+                          'type': 'vendor',
+                          'name': 'Drivers',
+                          'assetSVGPath': 'assets/svg_icons/driver.svg',
+                        },
+                        {
+                          'type': 'vendor',
+                          'name': 'Security Gaurds',
+                          'assetSVGPath': 'assets/svg_icons/policeman.svg',
+                        },
+                        {
+                          'type': 'vendor',
+                          'name': 'Plumbers',
+                          'assetSVGPath': 'assets/svg_icons/plumber.svg',
+                        },
+                        {
+                          'type': 'vendor',
+                          'name': 'Electricians',
+                          'assetSVGPath': 'assets/svg_icons/electrician.svg',
+                        },
+                      ],
+                    ),
+                    // DebugCategoryDisplayWidget(
+                    //   title: 'Events and Entertainment',
+                    //   categoryDetails: [
+                    //     {
+                    //       'type': 'vendor',
+                    //       'name': 'Dance Performers',
+                    //       'assetSVGPath': 'assets/svg_icons/dance.svg',
+                    //     },
+                    //     {
+                    //       'type': 'vendor',
+                    //       'name': 'Singers',
+                    //       'assetSVGPath': 'assets/svg_icons/singer.svg',
+                    //     },
+                    //     {
+                    //       'type': 'vendor',
+                    //       'name': 'Stand Up Comedians',
+                    //       'assetSVGPath':
+                    //       'assets/svg_icons/standup_comedian.svg',
+                    //     },
+                    //     {
+                    //       'type': 'vendor',
+                    //       'name': 'Anchors',
+                    //       'assetSVGPath': 'assets/svg_icons/anchors.svg',
+                    //     },
+                    //     {
+                    //       'type': 'vendor',
+                    //       'name': 'Magicians',
+                    //       'assetSVGPath': 'assets/svg_icons/magician.svg',
+                    //     },
+                    //     {
+                    //       'type': 'vendor',
+                    //       'name': 'Event Organizers',
+                    //       'assetSVGPath':
+                    //       'assets/svg_icons/event_organizers.svg',
+                    //     },
+                    //   ],
+                    // ),
                   ],
                 ),
-                // DebugCategoryDisplayWidget(
-                //   title: 'Events and Entertainment',
-                //   categoryDetails: [
-                //     {
-                //       'type': 'vendor',
-                //       'name': 'Dance Performers',
-                //       'assetSVGPath': 'assets/svg_icons/dance.svg',
-                //     },
-                //     {
-                //       'type': 'vendor',
-                //       'name': 'Singers',
-                //       'assetSVGPath': 'assets/svg_icons/singer.svg',
-                //     },
-                //     {
-                //       'type': 'vendor',
-                //       'name': 'Stand Up Comedians',
-                //       'assetSVGPath':
-                //       'assets/svg_icons/standup_comedian.svg',
-                //     },
-                //     {
-                //       'type': 'vendor',
-                //       'name': 'Anchors',
-                //       'assetSVGPath': 'assets/svg_icons/anchors.svg',
-                //     },
-                //     {
-                //       'type': 'vendor',
-                //       'name': 'Magicians',
-                //       'assetSVGPath': 'assets/svg_icons/magician.svg',
-                //     },
-                //     {
-                //       'type': 'vendor',
-                //       'name': 'Event Organizers',
-                //       'assetSVGPath':
-                //       'assets/svg_icons/event_organizers.svg',
-                //     },
-                //   ],
-                // ),
               ],
-            ),
-          ],
-        )
-            :
-        _vm.searchResultantList.isNotEmpty ? ListView.builder(
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          itemCount: _vm.searchResultantList.length,
-          itemBuilder: (context, index) {
-            return SearchCategoryDisplayWidget(
-              categoryData: _vm.searchResultantList[index],
-            );
-          },
-        )
-            :
-        Center(
-          child: Text(
-            "No Matching Options Found!",
-            style: TextStyle(
-              fontSize: 18.0,
-              color: Constants.customPrimaryColor,
+            )
+                :
+            _vm.searchResultantList.isNotEmpty ? ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: _vm.searchResultantList.length,
+              itemBuilder: (context, index) {
+                return SearchCategoryDisplayWidget(
+                  categoryData: _vm.searchResultantList[index],
+                );
+              },
+            )
+                :
+            Center(
+              child: Text(
+                "No Matching Options Found!",
+                style: TextStyle(
+                  fontSize: 18.0,
+                  color: Constants.customPrimaryColor,
+                ),
+              ),
             ),
           ),
-        ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.08,
+                width: MediaQuery.of(context).size.width * 0.60,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                  elevation: 8.0,
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            InkWell(
+                              child: Icon(
+                                Icons.home_outlined,
+                                size: 30.0,
+                              ),
+                              onTap: () {
+
+                              },
+                            ),
+                            Text(
+                              'Home',
+                              style: TextStyle(
+                                fontSize: 10.0,
+                              ),
+                            )
+                          ],
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            InkWell(
+                              child: Icon(
+                                Icons.error_outline,
+                                size: 30.0,
+                              ),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) {
+                                        return ChangeNotifierProvider(
+                                          create: (context) {
+                                            return AboutUsPageViewModel();
+                                          },
+                                          builder: (context, _) {
+                                            return AboutUsPage();
+                                          },
+                                        );
+                                      }
+                                  )
+                                );
+                              },
+                            ),
+                            Text(
+                              'About Us',
+                              style: TextStyle(
+                                fontSize: 10.0,
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       )
           :
       Center(

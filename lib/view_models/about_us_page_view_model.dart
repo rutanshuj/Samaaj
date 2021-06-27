@@ -9,15 +9,15 @@ class AboutUsPageViewModel extends ChangeNotifier {
   String isError = "";
 
 
-  validateForm({String name, String email, String phoneNumber, String message}) async{
+  Future<void> validateForm({String name, String email, String phoneNumber, String message}) async{
 
     if(name.isEmpty) {
       this.isError = "Please Enter You Name";
     } else if(email.isEmpty && phoneNumber.isEmpty) {
       this.isError = "Please Enter Either Phone Number or Email";
-    } /*else if(message.isEmpty) {
+    } else if(message.isEmpty) {
       this.isError = "Please Enter Your Message";
-    }*/ else {
+    } else {
       try {
         if(phoneNumber.isNotEmpty) {
           int.parse(phoneNumber);
@@ -30,9 +30,12 @@ class AboutUsPageViewModel extends ChangeNotifier {
           );
         }
       } catch(e) {
-        print(phoneNumber);
         print(e);
-        this.isError = "Please Enter A Valid Phone Number";
+        if(e.toString() == "api-call-failed") {
+          this.isError = "Please try again later";
+        } else {
+          this.isError = "Please Enter A Valid Phone Number";
+        }
       }
     }
     cancelLoading();

@@ -174,18 +174,21 @@ class BackendWebServices {
       "email": email,
       "mobileNo": phoneNumber,
       "name": name,
+      "messageBody": message,
     };
-    print(jsonEncode(body));
+    final reqBody = jsonEncode(body);
+    print(reqBody);
     Response _res = await post(
       _uri,
-      body: jsonEncode(body),
+      body: reqBody,
       headers: {
         "Content-Type": "application/json",
       }
     );
 
-    print(_res.body);
-    print(_res.statusCode);
+    if(_res.statusCode != 200) {
+      throw Exception("api-call-failed");
+    }
   }
 
 }

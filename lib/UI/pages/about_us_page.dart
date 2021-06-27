@@ -1,6 +1,7 @@
 import 'package:Samaaj/utils/constants.dart';
 import 'package:Samaaj/view_models/about_us_page_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
 class AboutUsPage extends StatefulWidget {
@@ -317,7 +318,12 @@ class _AboutUsPageState extends State<AboutUsPage> {
                       phoneNumber: _phoneNumberController.text,
                       email: _emailIDController.text,
                       name: _nameController.text,
-                    );
+                    ).whenComplete(() {
+                      if(_vm.isError.isEmpty) {
+                        Fluttertoast.showToast(msg: "Message Successfully Sent!");
+                        Navigator.pop(context);
+                      }
+                    });
                   },
                   child: Text(
                     "Send",
