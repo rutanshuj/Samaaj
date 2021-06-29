@@ -60,7 +60,7 @@ class _DebugCategoryDisplayWidgetState extends State<DebugCategoryDisplayWidget>
                         context,
                         MaterialPageRoute(builder: (context) {
                           return PeoplePage(
-                            categoryType: widget.categoryDetails[index]['name'],
+                            subCategoryViewModel: widget.categoryDetails[index]['name'],
                           );
                         }),
                       );

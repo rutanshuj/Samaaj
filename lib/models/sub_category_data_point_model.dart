@@ -11,6 +11,9 @@ class SubCategoryDataPointModel {
   final num mobile2;
   final String openHours;
   final String comments;
+  //People
+  final String location;
+  final num mobileNo;
 
   SubCategoryDataPointModel({
     this.id,
@@ -24,6 +27,8 @@ class SubCategoryDataPointModel {
     this.mobile2,
     this.openHours,
     this.comments,
+    this.location,
+    this.mobileNo,
   });
 
 
@@ -40,6 +45,8 @@ class SubCategoryDataPointModel {
       mobile2: json["mobile2"],
       openHours: json["openHours"],
       comments: json["comments"],
+      location: json["location"],
+      mobileNo: json["mobileNo"],
     );
   }
 

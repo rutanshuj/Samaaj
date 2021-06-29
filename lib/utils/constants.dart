@@ -11,6 +11,8 @@ class Constants {
 
   static const String appLogo = "assets/images/samaaj_logo.png";
 
+  static const String blueCollarMasterCategoryID = "60d39709d759fb47281515eb";
+
   static Color customPrimaryColor = Colors.blue[900];
 
   static ButtonStyle customDetailsPageTextButtonStyle = TextButton.styleFrom(

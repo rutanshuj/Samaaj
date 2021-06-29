@@ -54,8 +54,8 @@ class _CategoryDisplayWidgetState extends State<CategoryDisplayWidget> {
         //_vm.subCategoryList.length
         //_vm.subCategoryList[index]
         !_vm.isLoading ? CustomGridView(
-            length: _vm.subCategoryList.length,
-            subCategoryViewModelList: _vm.subCategoryList,
+          length: _vm.subCategoryList.length,
+          subCategoryViewModelList: _vm.subCategoryList,
         )
             :
         Container(

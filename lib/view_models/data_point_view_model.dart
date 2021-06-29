@@ -19,5 +19,7 @@ class DataPointViewModel {
   num get mobile2 => _subCategoryDataPointModel.mobile2;
   String get openHours => _subCategoryDataPointModel.openHours;
   String get comments => _subCategoryDataPointModel.comments;
+  String get location => _subCategoryDataPointModel.location;
+  num get mobileNo => _subCategoryDataPointModel.mobileNo;
 
 }

@@ -5,9 +5,11 @@ import 'package:share_plus/share_plus.dart';
 
 class ShareContentLaunchButton extends StatelessWidget {
   final DataPointViewModel dataPointViewModel;
+  final bool isShop;
 
   const ShareContentLaunchButton({
     @required this.dataPointViewModel,
+    @required this.isShop,
     Key key,
   }) : super(key: key);
 
@@ -17,7 +19,9 @@ class ShareContentLaunchButton extends StatelessWidget {
       style: Constants.customDetailsPageTextButtonStyle,
       onPressed: () {
         String content =
-            "${dataPointViewModel.fullName}\nAddress: ${dataPointViewModel.address ?? "N/A"}\nPhone Number: ${dataPointViewModel.mobile1 ?? "N/A"}\nStrong Timings: ${dataPointViewModel.openHours ?? "N/A"}";
+            isShop ? "${dataPointViewModel.fullName}\nAddress: ${dataPointViewModel.address ?? "N/A"}\nPhone Number: ${dataPointViewModel.mobile1 ?? "N/A"}\nStrong Timings: ${dataPointViewModel.openHours ?? "N/A"}"
+                :
+            "${dataPointViewModel.fullName}\nAddress: ${dataPointViewModel.location ?? "N/A"}\nPhone Number: ${dataPointViewModel.mobileNo ?? "N/A"}}";
         Share.share(content, subject: "Check This Out At Samaaj App!");
       },
       child: Padding(

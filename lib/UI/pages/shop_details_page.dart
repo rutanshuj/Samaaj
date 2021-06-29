@@ -94,10 +94,11 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         PhoneCallLaunchButton(
-                          phoneNumber: _vm.datapointViewModel.mobile1.toString(),
+                          phoneNumber: _vm.datapointViewModel.mobile1,
                         ),
                         Spacer(),
                         ShareContentLaunchButton(
+                          isShop: true,
                           dataPointViewModel: _vm.datapointViewModel,
                         ),
                       ],

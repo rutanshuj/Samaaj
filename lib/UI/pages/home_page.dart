@@ -33,42 +33,31 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Constants.customPrimaryColor,
-          title: Row(
-            children: [
-              Container(
-                height: MediaQuery.of(context).size.height * 0.07,
-                child: Image.asset(
-                  Constants.appLogo,
-                  fit: BoxFit.contain,
+          title: Padding(
+            padding: EdgeInsets.only(top: 4.0),
+            child: Row(
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.06,
+                  child: Image.asset(
+                    Constants.appLogo,
+                    fit: BoxFit.contain,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 5.0,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('Samaaj'),
-              ),
-            ],
-          ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: IconButton(
-                icon: Icon(
-                  Icons.person,
+                SizedBox(
+                  height: 5.0,
                 ),
-                onPressed: () {
-
-                },
-              ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('Samaaj'),
+                ),
+              ],
             ),
-          ],
+          ),
           bottom: PreferredSize(
             preferredSize:
                 Size.fromHeight(MediaQuery.of(context).size.height * 0.13),
             child: Column(
-//            crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CustomSearchBox(
@@ -120,94 +109,94 @@ class _HomePageState extends State<HomePage> {
 
                 ///This column is to keep the static content in the app
                 ///When all the content is dynamic, remove this column.
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    DebugCategoryDisplayWidget(
-                      title: 'People',
-                      categoryDetails: [
-                        {
-                          'type': 'vendor',
-                          'name': 'Vegetable Vendors',
-                          'assetSVGPath': 'assets/svg_icons/shop.svg',
-                        },
-                        {
-                          'type': 'vendor',
-                          'name': 'Dhobi',
-                          'assetSVGPath': 'assets/svg_icons/dhobi.svg',
-                        },
-                        {
-                          'type': 'vendor',
-                          'name': 'Presswala',
-                          'assetSVGPath':
-                          'assets/svg_icons/ironing-board.svg',
-                        },
-                        {
-                          'type': 'vendor',
-                          'name': 'Domestic Help',
-                          'assetSVGPath': 'assets/svg_icons/mop.svg',
-                        },
-                        {
-                          'type': 'vendor',
-                          'name': 'Drivers',
-                          'assetSVGPath': 'assets/svg_icons/driver.svg',
-                        },
-                        {
-                          'type': 'vendor',
-                          'name': 'Security Gaurds',
-                          'assetSVGPath': 'assets/svg_icons/policeman.svg',
-                        },
-                        {
-                          'type': 'vendor',
-                          'name': 'Plumbers',
-                          'assetSVGPath': 'assets/svg_icons/plumber.svg',
-                        },
-                        {
-                          'type': 'vendor',
-                          'name': 'Electricians',
-                          'assetSVGPath': 'assets/svg_icons/electrician.svg',
-                        },
-                      ],
-                    ),
-                    // DebugCategoryDisplayWidget(
-                    //   title: 'Events and Entertainment',
-                    //   categoryDetails: [
-                    //     {
-                    //       'type': 'vendor',
-                    //       'name': 'Dance Performers',
-                    //       'assetSVGPath': 'assets/svg_icons/dance.svg',
-                    //     },
-                    //     {
-                    //       'type': 'vendor',
-                    //       'name': 'Singers',
-                    //       'assetSVGPath': 'assets/svg_icons/singer.svg',
-                    //     },
-                    //     {
-                    //       'type': 'vendor',
-                    //       'name': 'Stand Up Comedians',
-                    //       'assetSVGPath':
-                    //       'assets/svg_icons/standup_comedian.svg',
-                    //     },
-                    //     {
-                    //       'type': 'vendor',
-                    //       'name': 'Anchors',
-                    //       'assetSVGPath': 'assets/svg_icons/anchors.svg',
-                    //     },
-                    //     {
-                    //       'type': 'vendor',
-                    //       'name': 'Magicians',
-                    //       'assetSVGPath': 'assets/svg_icons/magician.svg',
-                    //     },
-                    //     {
-                    //       'type': 'vendor',
-                    //       'name': 'Event Organizers',
-                    //       'assetSVGPath':
-                    //       'assets/svg_icons/event_organizers.svg',
-                    //     },
-                    //   ],
-                    // ),
-                  ],
-                ),
+                // Column(
+                //   crossAxisAlignment: CrossAxisAlignment.stretch,
+                //   children: [
+                //     DebugCategoryDisplayWidget(
+                //       title: 'People',
+                //       categoryDetails: [
+                //         {
+                //           'type': 'vendor',
+                //           'name': 'Vegetable Vendors',
+                //           'assetSVGPath': 'assets/svg_icons/shop.svg',
+                //         },
+                //         {
+                //           'type': 'vendor',
+                //           'name': 'Dhobi',
+                //           'assetSVGPath': 'assets/svg_icons/dhobi.svg',
+                //         },
+                //         {
+                //           'type': 'vendor',
+                //           'name': 'Presswala',
+                //           'assetSVGPath':
+                //           'assets/svg_icons/ironing-board.svg',
+                //         },
+                //         {
+                //           'type': 'vendor',
+                //           'name': 'Domestic Help',
+                //           'assetSVGPath': 'assets/svg_icons/mop.svg',
+                //         },
+                //         {
+                //           'type': 'vendor',
+                //           'name': 'Drivers',
+                //           'assetSVGPath': 'assets/svg_icons/driver.svg',
+                //         },
+                //         {
+                //           'type': 'vendor',
+                //           'name': 'Security Gaurds',
+                //           'assetSVGPath': 'assets/svg_icons/policeman.svg',
+                //         },
+                //         {
+                //           'type': 'vendor',
+                //           'name': 'Plumbers',
+                //           'assetSVGPath': 'assets/svg_icons/plumber.svg',
+                //         },
+                //         {
+                //           'type': 'vendor',
+                //           'name': 'Electricians',
+                //           'assetSVGPath': 'assets/svg_icons/electrician.svg',
+                //         },
+                //       ],
+                //     ),
+                //     // DebugCategoryDisplayWidget(
+                //     //   title: 'Events and Entertainment',
+                //     //   categoryDetails: [
+                //     //     {
+                //     //       'type': 'vendor',
+                //     //       'name': 'Dance Performers',
+                //     //       'assetSVGPath': 'assets/svg_icons/dance.svg',
+                //     //     },
+                //     //     {
+                //     //       'type': 'vendor',
+                //     //       'name': 'Singers',
+                //     //       'assetSVGPath': 'assets/svg_icons/singer.svg',
+                //     //     },
+                //     //     {
+                //     //       'type': 'vendor',
+                //     //       'name': 'Stand Up Comedians',
+                //     //       'assetSVGPath':
+                //     //       'assets/svg_icons/standup_comedian.svg',
+                //     //     },
+                //     //     {
+                //     //       'type': 'vendor',
+                //     //       'name': 'Anchors',
+                //     //       'assetSVGPath': 'assets/svg_icons/anchors.svg',
+                //     //     },
+                //     //     {
+                //     //       'type': 'vendor',
+                //     //       'name': 'Magicians',
+                //     //       'assetSVGPath': 'assets/svg_icons/magician.svg',
+                //     //     },
+                //     //     {
+                //     //       'type': 'vendor',
+                //     //       'name': 'Event Organizers',
+                //     //       'assetSVGPath':
+                //     //       'assets/svg_icons/event_organizers.svg',
+                //     //     },
+                //     //   ],
+                //     // ),
+                //   ],
+                // ),
               ],
             )
                 :

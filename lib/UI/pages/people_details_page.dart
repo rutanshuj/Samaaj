@@ -1,112 +1,110 @@
+import 'package:Samaaj/UI/widgets/phone_call_launch_button.dart';
+import 'package:Samaaj/UI/widgets/share_content_launch_button.dart';
 import 'package:Samaaj/utils/constants.dart';
+import 'package:Samaaj/view_models/data_point_details_view_model.dart';
+import 'package:Samaaj/view_models/data_point_view_model.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class PeopleDetailsPage extends StatefulWidget {
+
+  final DataPointViewModel dataModelViewPoint;
+  final String masterCategoryID;
+
+  const PeopleDetailsPage({
+    Key key,
+    @required this.dataModelViewPoint,
+    @required this.masterCategoryID,
+  }) : super(key: key);
+
   @override
   _PeopleDetailsPageState createState() => _PeopleDetailsPageState();
 }
 
 class _PeopleDetailsPageState extends State<PeopleDetailsPage> {
+
+  DataPointViewModel _dataModelViewPoint;
+
+  @override
+  void initState() {
+    _dataModelViewPoint = widget.dataModelViewPoint;
+    final _vm = Provider.of<DataPointsDetailsViewModel>(context, listen: false);
+    _vm.getDataPointDetails(
+      masterCategoryID: widget.masterCategoryID,
+      dataPointID: _dataModelViewPoint.id,
+    );
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final _vm = Provider.of<DataPointsDetailsViewModel>(context);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue[900],
+        backgroundColor: Constants.customPrimaryColor,
         elevation: 0.0,
       ),
-      body: Column(
+      body: !_vm.isLoading ? Column(
         children: [
           Container(
             height: MediaQuery.of(context).size.height * 0.25,
             width: MediaQuery.of(context).size.width,
-            color: Colors.blue[900],
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.14),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start  ,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      'Vendor Name',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.start,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Text(
-                      'Area Name',
-                      style: TextStyle(
-                        color: Colors.white,
+            color: Constants.customPrimaryColor,
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.14),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start  ,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        '${_vm.datapointViewModel.fullName}',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.start,
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Text(
-                      'Phone +91 9876543210',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      TextButton(
-                        style: Constants.customDetailsPageTextButtonStyle,
-                        onPressed: (){},
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 12.0),
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.phone_callback_outlined,
-                                color: Colors.blue[900],
-                              ),
-                              Text(
-                                'Call',
-                                style: TextStyle(
-                                  color: Colors.blue[900],
-                                ),
-                              )
-                            ],
-                          ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Text(
+                        '${_vm.datapointViewModel.location}',
+                        style: TextStyle(
+                          color: Colors.white,
                         ),
                       ),
-                      Spacer(),
-                      TextButton(
-                        style: Constants.customDetailsPageTextButtonStyle,
-                        onPressed: (){},
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 12.0),
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.share_outlined,
-                                color: Colors.blue[900],
-                              ),
-                              Text(
-                                'Share',
-                                style: TextStyle(
-                                  color: Colors.blue[900],
-                                ),
-                              )
-                            ],
-                          ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Text(
+                        'Phone ${_vm.datapointViewModel.mobileNo ?? "Not Provided."}',
+                        style: TextStyle(
+                          color: Colors.white,
                         ),
                       ),
-                    ],
-                  ),
-                ],
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        PhoneCallLaunchButton(
+                          phoneNumber: _vm.datapointViewModel.mobileNo,
+                        ),
+                        Spacer(),
+                        ShareContentLaunchButton(
+                          isShop: false,
+                          dataPointViewModel: _vm.datapointViewModel,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -122,7 +120,7 @@ class _PeopleDetailsPageState extends State<PeopleDetailsPage> {
                       child: Text(
                         'Details',
                         style: TextStyle(
-                          color: Colors.blue[900],
+                          color: Constants.customPrimaryColor,
                           fontSize: 24.0,
                           fontWeight: FontWeight.bold,
                         ),
@@ -137,14 +135,14 @@ class _PeopleDetailsPageState extends State<PeopleDetailsPage> {
                           Text(
                             'Working Hours- ',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                             ),
                           ),
                           Text(
-                            '9 AM to 11 PM',
+                            '${_vm.datapointViewModel.openHours ?? "9 AM to 7 PM"}',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -155,29 +153,6 @@ class _PeopleDetailsPageState extends State<PeopleDetailsPage> {
 
                     SizedBox(height: 5.0,),
 
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Areas Served- ',
-                            style: TextStyle(
-                              color: Colors.blue[900],
-                              fontSize: 15.0,
-                            ),
-                          ),
-                          Text(
-                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-                            style: TextStyle(
-                              color: Colors.blue[900],
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
 
                     SizedBox(height: 5.0,),
 
@@ -189,14 +164,14 @@ class _PeopleDetailsPageState extends State<PeopleDetailsPage> {
                           Text(
                             'Gender- ',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                             ),
                           ),
                           Text(
                             'Male',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -215,23 +190,14 @@ class _PeopleDetailsPageState extends State<PeopleDetailsPage> {
                           Text(
                             'Languages- ',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                             ),
                           ),
                           Text(
-                            'Hinid',
+                            'Hindi',
                             style: TextStyle(
-                              color: Colors.blue[900],
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-
-                          Text(
-                            'English',
-                            style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -240,7 +206,16 @@ class _PeopleDetailsPageState extends State<PeopleDetailsPage> {
                           Text(
                             'Marathi',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+
+                          Text(
+                            'Gujarati',
+                            style: TextStyle(
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -259,14 +234,32 @@ class _PeopleDetailsPageState extends State<PeopleDetailsPage> {
                           Text(
                             'Payment Options- ',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                             ),
                           ),
                           Text(
                             'Cash',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+
+                          Text(
+                            'Debit Card',
+                            style: TextStyle(
+                              color: Constants.customPrimaryColor,
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+
+                          Text(
+                            'Credit Card',
+                            style: TextStyle(
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -275,7 +268,7 @@ class _PeopleDetailsPageState extends State<PeopleDetailsPage> {
                           Text(
                             'Google Pay, PhonePe, Amazon Pay',
                             style: TextStyle(
-                              color: Colors.blue[900],
+                              color: Constants.customPrimaryColor,
                               fontSize: 15.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -290,6 +283,14 @@ class _PeopleDetailsPageState extends State<PeopleDetailsPage> {
             ),
           ),
         ],
+      )
+          :
+      Center(
+        child: CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation<Color>(
+            Constants.customPrimaryColor,
+          ),
+        ),
       ),
     );
   }

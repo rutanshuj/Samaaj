@@ -1,3 +1,4 @@
+import 'package:Samaaj/UI/pages/people_page.dart';
 import 'package:Samaaj/UI/pages/shop_page.dart';
 import 'package:Samaaj/utils/constants.dart';
 import 'package:Samaaj/view_models/data_point_list_view_model.dart';
@@ -24,21 +25,39 @@ class SubCategoryDisplayTile extends StatelessWidget {
         ),
         child: InkWell(
           onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) {
-                return ChangeNotifierProvider(
+            if (subCategoryViewModel.isShop) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  return ChangeNotifierProvider(
+                      create: (context) {
+                        return DataPointListViewModel();
+                      },
+                      builder: (context, child) {
+                        return ShopPage(
+                          subCategoryViewModel: subCategoryViewModel,
+                        );
+                      }
+                  );
+                }),
+              );
+            } else {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  return ChangeNotifierProvider(
                     create: (context) {
                       return DataPointListViewModel();
                     },
                     builder: (context, child) {
-                      return ShopPage(
+                      return PeoplePage(
                         subCategoryViewModel: subCategoryViewModel,
                       );
                     }
-                );
-              }),
-            );
+                  );
+                }),
+              );
+            }
           },
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -72,7 +91,7 @@ class SubCategoryDisplayTile extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: AutoSizeText(
                       "${subCategoryViewModel.name}",
-                      maxLines: 3,
+                      // maxLines: 5,
                       textAlign: TextAlign.end,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,

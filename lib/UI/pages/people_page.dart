@@ -1,11 +1,19 @@
 import 'package:Samaaj/UI/pages/people_details_page.dart';
+import 'package:Samaaj/UI/pages/shop_details_page.dart';
+import 'package:Samaaj/UI/widgets/custom_search_box.dart';
+import 'package:Samaaj/utils/constants.dart';
+import 'package:Samaaj/view_models/data_point_details_view_model.dart';
+import 'package:Samaaj/view_models/data_point_list_view_model.dart';
+import 'package:Samaaj/view_models/sub_category_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class PeoplePage extends StatefulWidget {
+  final SubCategoryViewModel subCategoryViewModel;
 
-  final String categoryType;
-
-  PeoplePage({@required this.categoryType});
+  PeoplePage({
+    @required this.subCategoryViewModel,
+  });
 
   @override
   _PeoplePageState createState() => _PeoplePageState();
@@ -13,60 +21,55 @@ class PeoplePage extends StatefulWidget {
 
 class _PeoplePageState extends State<PeoplePage> {
 
-  String name;
+  SubCategoryViewModel _subCategoryViewModel;
+  TextEditingController _tagController = TextEditingController();
+
+  @override
+  void initState() {
+    _subCategoryViewModel = widget.subCategoryViewModel;
+    final _vm = Provider.of<DataPointListViewModel>(context, listen: false);
+    _vm.getDataPointsList(
+      masterCategoryID: _subCategoryViewModel.masterCategoryID,
+      subCategoryID: _subCategoryViewModel.id,
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+    final _vm = Provider.of<DataPointListViewModel>(context);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue[900],
+        backgroundColor: Constants.customPrimaryColor,
         title: Text(
-          widget.categoryType,
-          style: TextStyle(
-              color: Colors.white
-          ),
+          _subCategoryViewModel.name,
+          style: TextStyle(color: Colors.white),
         ),
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(MediaQuery.of(context).size.height * 0.08),
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                width: MediaQuery.of(context).size.width * 0.75,
-                height: MediaQuery.of(context).size.height * 0.06,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(32.0),
-                ),
-                child: Row(
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.60,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Search for Store/Item',
-                          ),
-                          onChanged: (String value) {
-                            name = value;
-                          },
-                        ),
-                      ),
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.search),
-                      onPressed: (){},
-                    )
-                  ],
-                ),
-              ),
+          preferredSize:
+          Size.fromHeight(MediaQuery.of(context).size.height * 0.08),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CustomSearchBox(
+              hintText: 'Search for Store/Item',
+              onChanged: (String value) {
+                if (value.isNotEmpty) {
+                  _vm.getDataPointsListBySearch(
+                    subCategoryID: _subCategoryViewModel.id,
+                    tag: value,
+                  );
+                } else {
+                  _vm.resetScreen(
+                    masterCategoryID: _subCategoryViewModel.masterCategoryID,
+                    subCategoryID: _subCategoryViewModel.id,
+                  );
+                }
+              },
             ),
           ),
         ),
       ),
-      body: Padding(
+      body: !_vm.isLoading ? Padding(
         padding: EdgeInsets.all(10.0),
         child: SingleChildScrollView(
           child: Column(
@@ -75,43 +78,43 @@ class _PeoplePageState extends State<PeoplePage> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  '100 Stores',
+                  '${_vm.dataPointList.length} Vendors',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.start,
                 ),
               ),
-              ListView.builder(
+              _vm.dataPointList.isNotEmpty ? ListView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
-                itemCount: 30,
-                itemBuilder: (context, index){
+                itemCount: _vm.dataPointList.length,
+                itemBuilder: (context, index) {
                   return Card(
                     elevation: 3.0,
                     shadowColor: Colors.blue,
                     child: InkWell(
-                      onTap: (){
+                      onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) {
-                                return PeopleDetailsPage();
-                              }
-                          ),
+                          MaterialPageRoute(builder: (context) {
+                            return ChangeNotifierProvider(
+                                create: (context) {
+                                  return DataPointsDetailsViewModel();
+                                },
+                                builder: (context, child) {
+                                  return PeopleDetailsPage(
+                                    masterCategoryID: widget.subCategoryViewModel.masterCategoryID,
+                                    dataModelViewPoint: _vm.dataPointList[index],
+                                  );
+                                }
+                            );
+                          }),
                         );
                       },
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Container(
-                              height: 75,
-                              width: 75,
-                              color: Colors.blue.shade300,
-                            ),
-                          ),
                           Flexible(
                             child: Padding(
                               padding: EdgeInsets.all(8.0),
@@ -120,21 +123,11 @@ class _PeoplePageState extends State<PeoplePage> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Vendor Name',
+                                    '${_vm.dataPointList[index].fullName}',
                                     style: TextStyle(
-                                      color: Colors.blue.shade900,
+                                      color: Constants.customPrimaryColor,
                                       fontSize: 18.0,
                                       fontWeight: FontWeight.bold,
-                                    ),
-                                    textAlign: TextAlign.start,
-                                  ),
-                                  SizedBox(
-                                    height: 5.0,
-                                  ),
-                                  Text(
-                                    'Vegetable Vendor',
-                                    style: TextStyle(
-                                      color: Colors.blue.shade900,
                                     ),
                                     textAlign: TextAlign.start,
                                   ),
@@ -142,9 +135,9 @@ class _PeoplePageState extends State<PeoplePage> {
                                     height: 15.0,
                                   ),
                                   Text(
-                                    '2.7km \t \t Area Name',
+                                    '${_subCategoryViewModel.name} \t \t ${_vm.dataPointList[index].location}',
                                     style: TextStyle(
-                                      color: Colors.blue.shade900,
+                                      color: Constants.customPrimaryColor,
                                     ),
                                     textAlign: TextAlign.start,
                                   ),
@@ -158,7 +151,25 @@ class _PeoplePageState extends State<PeoplePage> {
                   );
                 },
               )
+                  :
+              Center(
+                child: Text(
+                  "No Matching Options Found!",
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    color: Constants.customPrimaryColor,
+                  ),
+                ),
+              ),
             ],
+          ),
+        ),
+      )
+          :
+      Center(
+        child: CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation<Color>(
+            Constants.customPrimaryColor,
           ),
         ),
       ),

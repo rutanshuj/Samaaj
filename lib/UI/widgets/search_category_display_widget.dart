@@ -3,7 +3,6 @@ import 'package:Samaaj/utils/constants.dart';
 import 'package:Samaaj/view_models/sub_category_view_model.dart';
 import 'package:flutter/material.dart';
 
-import 'sub_category_display_tile.dart';
 
 class SearchCategoryDisplayWidget extends StatelessWidget {
 
