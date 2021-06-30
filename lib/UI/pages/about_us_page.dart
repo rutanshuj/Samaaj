@@ -64,7 +64,26 @@ class _AboutUsPageState extends State<AboutUsPage> {
               ),
 
               Text(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                '''I am Suraj Jayasimha. I am 17 years old and I am studying in the 12 th grade at Dhirubhai Ambani
+                International School. My school and my parents have always given me space and encouragement to
+              do things that interests me. In the last few years, I have not only participated but have involved in
+              many community service activities like collecting groceries, clothing etc and distributing to Sangli
+              flood affected victims through “Indian Development Foundation, fund raising for providing shelter to
+              the shelter less through “Habitat for Humanity”, Running marathons and raising funds for bereaved
+                families of soldiers, etc. During the last few months I witnessed that all around me, due to COVID 19,
+                small businesses such as vegetable and fruit vendors, and blue collared workers like plumbers,
+                electricians, carpenters, maids, cooks, drivers, etc losing their jobs and source of livelihood. At the
+              same time, I also witnessed that every household is always in need of some services or the other
+              from the above-mentioned people. I thought that bringing these two together will be a way in which
+              I will be able to contribute my little bit. This gave me an idea to develop a simple app which can be
+              used easily on mobile phones and on PCs. Thus, my app ‘SAMAAJ’ took birth. This uses a very simple
+              interphase and is very intuitive. SAMAAJ can be downloaded on Android as well as IOS. It will open
+                up contact details such as name, profession, cell numbers, etc of so many small entrepreneurs and
+              blue collared workers who would service your every domestic need. As I live in Chandivali, this app
+                has captured details from the neighbourhood of Chandivali and Powai. The idea is to help people in
+              need. Hope you will download this app and experience everything it has to offer. If you have
+              feedback for me or the app, I can be reached on my mail surajjayasimha@gmail.com OR on my cell
+              phone 9769010998. Hope you will like my creation. Thank you.''',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Constants.customPrimaryColor,

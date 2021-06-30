@@ -109,179 +109,184 @@ class _PeopleDetailsPageState extends State<PeopleDetailsPage> {
             ),
           ),
           Expanded(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'Details',
-                        style: TextStyle(
-                          color: Constants.customPrimaryColor,
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Working Hours- ',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                            ),
-                          ),
-                          Text(
-                            '${_vm.datapointViewModel.openHours ?? "9 AM to 7 PM"}',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    SizedBox(height: 5.0,),
-
-
-                    SizedBox(height: 5.0,),
-
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Gender- ',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                            ),
-                          ),
-                          Text(
-                            'Male',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    SizedBox(height: 5.0,),
-
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Languages- ',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                            ),
-                          ),
-                          Text(
-                            'Hindi',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-
-                          Text(
-                            'Marathi',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-
-                          Text(
-                            'Gujarati',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    SizedBox(height: 5.0,),
-
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Payment Options- ',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                            ),
-                          ),
-                          Text(
-                            'Cash',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-
-                          Text(
-                            'Debit Card',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-
-                          Text(
-                            'Credit Card',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-
-                          Text(
-                            'Google Pay, PhonePe, Amazon Pay',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                  ],
-                ),
-              ),
+            child: Image.asset(
+              Constants.appLogo,
             ),
-          ),
+          )
+          // Expanded(
+          //   child: SingleChildScrollView(
+          //     child: Padding(
+          //       padding: EdgeInsets.all(8.0),
+          //       child: Column(
+          //         crossAxisAlignment: CrossAxisAlignment.stretch,
+          //         children: [
+          //           Padding(
+          //             padding: const EdgeInsets.all(8.0),
+          //             child: Text(
+          //               'Details',
+          //               style: TextStyle(
+          //                 color: Constants.customPrimaryColor,
+          //                 fontSize: 24.0,
+          //                 fontWeight: FontWeight.bold,
+          //               ),
+          //               textAlign: TextAlign.center,
+          //             ),
+          //           ),
+          //           Padding(
+          //             padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          //             child: Column(
+          //               crossAxisAlignment: CrossAxisAlignment.start,
+          //               children: [
+          //                 Text(
+          //                   'Working Hours- ',
+          //                   style: TextStyle(
+          //                     color: Constants.customPrimaryColor,
+          //                     fontSize: 15.0,
+          //                   ),
+          //                 ),
+          //                 Text(
+          //                   '${_vm.datapointViewModel.openHours ?? "9 AM to 7 PM"}',
+          //                   style: TextStyle(
+          //                     color: Constants.customPrimaryColor,
+          //                     fontSize: 15.0,
+          //                     fontWeight: FontWeight.bold,
+          //                   ),
+          //                 ),
+          //               ],
+          //             ),
+          //           ),
+          //
+          //           SizedBox(height: 5.0,),
+          //
+          //
+          //           SizedBox(height: 5.0,),
+          //
+          //           Padding(
+          //             padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          //             child: Column(
+          //               crossAxisAlignment: CrossAxisAlignment.start,
+          //               children: [
+          //                 Text(
+          //                   'Gender- ',
+          //                   style: TextStyle(
+          //                     color: Constants.customPrimaryColor,
+          //                     fontSize: 15.0,
+          //                   ),
+          //                 ),
+          //                 Text(
+          //                   'Male',
+          //                   style: TextStyle(
+          //                     color: Constants.customPrimaryColor,
+          //                     fontSize: 15.0,
+          //                     fontWeight: FontWeight.bold,
+          //                   ),
+          //                 ),
+          //               ],
+          //             ),
+          //           ),
+          //
+          //           SizedBox(height: 5.0,),
+          //
+          //           Padding(
+          //             padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          //             child: Column(
+          //               crossAxisAlignment: CrossAxisAlignment.start,
+          //               children: [
+          //                 Text(
+          //                   'Languages- ',
+          //                   style: TextStyle(
+          //                     color: Constants.customPrimaryColor,
+          //                     fontSize: 15.0,
+          //                   ),
+          //                 ),
+          //                 Text(
+          //                   'Hindi',
+          //                   style: TextStyle(
+          //                     color: Constants.customPrimaryColor,
+          //                     fontSize: 15.0,
+          //                     fontWeight: FontWeight.bold,
+          //                   ),
+          //                 ),
+          //
+          //                 Text(
+          //                   'Marathi',
+          //                   style: TextStyle(
+          //                     color: Constants.customPrimaryColor,
+          //                     fontSize: 15.0,
+          //                     fontWeight: FontWeight.bold,
+          //                   ),
+          //                 ),
+          //
+          //                 Text(
+          //                   'Gujarati',
+          //                   style: TextStyle(
+          //                     color: Constants.customPrimaryColor,
+          //                     fontSize: 15.0,
+          //                     fontWeight: FontWeight.bold,
+          //                   ),
+          //                 ),
+          //               ],
+          //             ),
+          //           ),
+          //
+          //           SizedBox(height: 5.0,),
+          //
+          //           Padding(
+          //             padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          //             child: Column(
+          //               crossAxisAlignment: CrossAxisAlignment.start,
+          //               children: [
+          //                 Text(
+          //                   'Payment Options- ',
+          //                   style: TextStyle(
+          //                     color: Constants.customPrimaryColor,
+          //                     fontSize: 15.0,
+          //                   ),
+          //                 ),
+          //                 Text(
+          //                   'Cash',
+          //                   style: TextStyle(
+          //                     color: Constants.customPrimaryColor,
+          //                     fontSize: 15.0,
+          //                     fontWeight: FontWeight.bold,
+          //                   ),
+          //                 ),
+          //
+          //                 Text(
+          //                   'Debit Card',
+          //                   style: TextStyle(
+          //                     color: Constants.customPrimaryColor,
+          //                     fontSize: 15.0,
+          //                     fontWeight: FontWeight.bold,
+          //                   ),
+          //                 ),
+          //
+          //                 Text(
+          //                   'Credit Card',
+          //                   style: TextStyle(
+          //                     color: Constants.customPrimaryColor,
+          //                     fontSize: 15.0,
+          //                     fontWeight: FontWeight.bold,
+          //                   ),
+          //                 ),
+          //
+          //                 Text(
+          //                   'Google Pay, PhonePe, Amazon Pay',
+          //                   style: TextStyle(
+          //                     color: Constants.customPrimaryColor,
+          //                     fontSize: 15.0,
+          //                     fontWeight: FontWeight.bold,
+          //                   ),
+          //                 ),
+          //               ],
+          //             ),
+          //           ),
+          //
+          //         ],
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
       )
           :
