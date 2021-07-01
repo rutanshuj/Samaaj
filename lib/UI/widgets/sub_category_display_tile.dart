@@ -91,7 +91,7 @@ class SubCategoryDisplayTile extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: AutoSizeText(
                       "${subCategoryViewModel.name}",
-                      // maxLines: 5,
+                      maxLines: 7,
                       textAlign: TextAlign.end,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,

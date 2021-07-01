@@ -241,6 +241,7 @@ class _HomePageState extends State<HomePage> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30.0),
             ),
+            color: Constants.customPrimaryColor,
             elevation: 8.0,
             child: Center(
               child: Row(
@@ -252,17 +253,20 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       InkWell(
                         child: Icon(
-                          Icons.home_outlined,
+                          Icons.refresh,
                           size: 30.0,
+                          color: Colors.white,
                         ),
                         onTap: () {
-
+                          _vm.resetScreen();
                         },
                       ),
                       Text(
-                        'Home',
+                        'Refresh',
                         style: TextStyle(
-                          fontSize: 10.0,
+                          fontSize: 12.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
                         ),
                       )
                     ],
@@ -274,6 +278,7 @@ class _HomePageState extends State<HomePage> {
                         child: Icon(
                           Icons.info_outline,
                           size: 30.0,
+                          color: Colors.white,
                         ),
                         onTap: () {
                           Navigator.push(
@@ -296,7 +301,9 @@ class _HomePageState extends State<HomePage> {
                       Text(
                         'About Us',
                         style: TextStyle(
-                          fontSize: 10.0,
+                          fontSize: 12.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
                         ),
                       )
                     ],
