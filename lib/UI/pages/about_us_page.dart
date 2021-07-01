@@ -38,14 +38,14 @@ class _AboutUsPageState extends State<AboutUsPage> {
                 child: CircleAvatar(
                   backgroundColor: Constants.customPrimaryColor,
                   radius: MediaQuery.of(context).size.height * 0.15,
-                  // child: Container(
-                  //   color: Constants.customPrimaryColor,
-                  // ),
+                  child: Image.asset(
+                    Constants.founderImage,
+                  )
                 ),
               ),
 
               Text(
-                "Name Of Developer",
+                "Suraj Jayasimha",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Constants.customPrimaryColor,

@@ -10,6 +10,7 @@ class Constants {
   static const String postMessage = "/get-in-touch";
 
   static const String appLogo = "assets/images/samaaj_logo.png";
+  static const String founderImage = "assets/images/founder.jpg";
 
   static const String blueCollarMasterCategoryID = "60d39709d759fb47281515eb";
 
