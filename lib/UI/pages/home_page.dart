@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CustomSearchBox(
-                  hintText: 'Search for Store/Item',
+                  hintText: 'Search for Category',
                   onChanged: (String value) {
                     if(value.isNotEmpty) {
                       _vm.getCategoryDataBySearch(tag: value);
