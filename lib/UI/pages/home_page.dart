@@ -253,7 +253,7 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       InkWell(
                         child: Icon(
-                          Icons.refresh,
+                          Icons.home_outlined,
                           size: 30.0,
                           color: Colors.white,
                         ),
@@ -262,7 +262,7 @@ class _HomePageState extends State<HomePage> {
                         },
                       ),
                       Text(
-                        'Refresh',
+                        'Home',
                         style: TextStyle(
                           fontSize: 12.0,
                           color: Colors.white,

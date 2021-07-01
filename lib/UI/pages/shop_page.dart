@@ -50,7 +50,7 @@ class _ShopPageState extends State<ShopPage> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: CustomSearchBox(
-              hintText: 'Search for Store/Item',
+              hintText: 'Search for Establishment',
               onChanged: (String value) {
                 if (value.isNotEmpty) {
                   _vm.getDataPointsListBySearch(

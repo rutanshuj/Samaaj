@@ -20,7 +20,7 @@ class CustomGridView extends StatelessWidget {
         crossAxisCount: 2,
         crossAxisSpacing: 10.0,
         mainAxisSpacing: 5.0,
-        childAspectRatio: 1.8,
+        childAspectRatio: 1.7,
       ),
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
