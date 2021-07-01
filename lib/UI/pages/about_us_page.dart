@@ -45,7 +45,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
               ),
 
               Text(
-                "Name Of Developer",
+                "Suraj Jayasimha",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Constants.customPrimaryColor,
