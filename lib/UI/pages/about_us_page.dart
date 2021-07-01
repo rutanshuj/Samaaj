@@ -35,12 +35,15 @@ class _AboutUsPageState extends State<AboutUsPage> {
             children: [
               Padding(
                 padding: EdgeInsets.all(8.0),
-                child: CircleAvatar(
-                  backgroundColor: Constants.customPrimaryColor,
-                  radius: MediaQuery.of(context).size.height * 0.15,
-                  child: Image.asset(
-                    Constants.founderImage,
-                  )
+                child: Container(
+                  height: 200,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                        image: AssetImage(Constants.founderImage),
+                        fit: BoxFit.contain
+                    ),
+                  ),
                 ),
               ),
 

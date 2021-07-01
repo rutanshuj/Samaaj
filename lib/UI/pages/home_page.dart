@@ -229,81 +229,79 @@ class _HomePageState extends State<HomePage> {
           valueColor: AlwaysStoppedAnimation<Color>(Constants.customPrimaryColor),
         ),
       ),
-      bottomNavigationBar: Center(
-        child: Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Container(
-            height: MediaQuery.of(context).size.height * 0.08,
-            width: MediaQuery.of(context).size.width * 0.60,
-            decoration: BoxDecoration(
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 60.0, vertical: 5.0),
+        child: Container(
+          height: MediaQuery.of(context).size.height * 0.08,
+          width: MediaQuery.of(context).size.width * 0.60,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30.0),
+          ),
+          child: Card(
+            shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30.0),
             ),
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30.0),
-              ),
-              elevation: 8.0,
-              child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        InkWell(
-                          child: Icon(
-                            Icons.home_outlined,
-                            size: 30.0,
-                          ),
-                          onTap: () {
+            elevation: 8.0,
+            child: Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      InkWell(
+                        child: Icon(
+                          Icons.home_outlined,
+                          size: 30.0,
+                        ),
+                        onTap: () {
 
-                          },
+                        },
+                      ),
+                      Text(
+                        'Home',
+                        style: TextStyle(
+                          fontSize: 10.0,
                         ),
-                        Text(
-                          'Home',
-                          style: TextStyle(
-                            fontSize: 10.0,
-                          ),
-                        )
-                      ],
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        InkWell(
-                          child: Icon(
-                            Icons.error_outline,
-                            size: 30.0,
-                          ),
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) {
-                                      return ChangeNotifierProvider(
-                                        create: (context) {
-                                          return AboutUsPageViewModel();
-                                        },
-                                        builder: (context, _) {
-                                          return AboutUsPage();
-                                        },
-                                      );
-                                    }
-                                )
-                            );
-                          },
+                      )
+                    ],
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      InkWell(
+                        child: Icon(
+                          Icons.info_outline,
+                          size: 30.0,
                         ),
-                        Text(
-                          'About Us',
-                          style: TextStyle(
-                            fontSize: 10.0,
-                          ),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) {
+                                    return ChangeNotifierProvider(
+                                      create: (context) {
+                                        return AboutUsPageViewModel();
+                                      },
+                                      builder: (context, _) {
+                                        return AboutUsPage();
+                                      },
+                                    );
+                                  }
+                              )
+                          );
+                        },
+                      ),
+                      Text(
+                        'About Us',
+                        style: TextStyle(
+                          fontSize: 10.0,
+                        ),
+                      )
+                    ],
+                  ),
+                ],
               ),
             ),
           ),

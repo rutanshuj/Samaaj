@@ -21,7 +21,7 @@ class ShareContentLaunchButton extends StatelessWidget {
         String content =
             isShop ? "${dataPointViewModel.fullName}\nAddress: ${dataPointViewModel.address ?? "N/A"}\nPhone Number: ${dataPointViewModel.mobile1 ?? "N/A"}\nStrong Timings: ${dataPointViewModel.openHours ?? "N/A"}"
                 :
-            "${dataPointViewModel.fullName}\nAddress: ${dataPointViewModel.location ?? "N/A"}\nPhone Number: ${dataPointViewModel.mobileNo ?? "N/A"}}";
+            "${dataPointViewModel.fullName}\nAddress: ${dataPointViewModel.location ?? "N/A"}\nPhone Number: ${dataPointViewModel.mobileNo ?? "N/A"}";
         Share.share(content, subject: "Check This Out At Samaaj App!");
       },
       child: Padding(

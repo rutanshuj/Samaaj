@@ -51,7 +51,7 @@ class _PeoplePageState extends State<PeoplePage> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: CustomSearchBox(
-              hintText: 'Search for Store/Item',
+              hintText: 'Search for Vendor',
               onChanged: (String value) {
                 if (value.isNotEmpty) {
                   _vm.getDataPointsListBySearch(
@@ -135,7 +135,7 @@ class _PeoplePageState extends State<PeoplePage> {
                                     height: 15.0,
                                   ),
                                   Text(
-                                    '${_subCategoryViewModel.name} \t \t ${_vm.dataPointList[index].location}',
+                                    '${_subCategoryViewModel.name}',
                                     style: TextStyle(
                                       color: Constants.customPrimaryColor,
                                     ),

@@ -109,199 +109,74 @@ class _ShopDetailsPageState extends State<ShopDetailsPage> {
             ),
           ),
           Expanded(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'Details',
-                        style: TextStyle(
-                          color: Constants.customPrimaryColor,
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.bold,
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'Details',
+                      style: TextStyle(
+                        color: Constants.customPrimaryColor,
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Store Timings- ',
+                          style: TextStyle(
+                            color: Constants.customPrimaryColor,
+                            fontSize: 18.0,
+                          ),
                         ),
-                        textAlign: TextAlign.center,
-                      ),
+                        Text(
+                          '${_vm.datapointViewModel.openHours ?? "Not Available"}',
+                          style: TextStyle(
+                            color: Constants.customPrimaryColor,
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Store Timings- ',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                            ),
+                  ),
+
+                  SizedBox(height: 15.0,),
+
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Address- ',
+                          style: TextStyle(
+                            color: Constants.customPrimaryColor,
+                            fontSize: 18.0,
                           ),
-                          Text(
-                            '${_vm.datapointViewModel.openHours ?? "Not Available"}',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
+                        ),
+                        Text(
+                          '${_vm.datapointViewModel.address}',
+                          style: TextStyle(
+                            color: Constants.customPrimaryColor,
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
+                  ),
 
-                    SizedBox(height: 5.0,),
-
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Address- ',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                            ),
-                          ),
-                          Text(
-                            '${_vm.datapointViewModel.address}',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    SizedBox(height: 5.0,),
-
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Accessibility- ',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                            ),
-                          ),
-                          Text(
-                            'Wheelchair- accessible item',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    SizedBox(height: 5.0,),
-
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Service Options- ',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                            ),
-                          ),
-                          Text(
-                            'In-Store shopping',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-
-                          Text(
-                            'In-Store Pickup',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-
-                          Text(
-                            'Free Home Delivery',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    SizedBox(height: 5.0,),
-
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Payment Options- ',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                            ),
-                          ),
-                          Text(
-                            'Cash',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-
-                          Text(
-                            'Debit Card',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-
-                          Text(
-                            'Credit Card',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-
-                          Text(
-                            'Google Pay, PhonePe, Amazon Pay',
-                            style: TextStyle(
-                              color: Constants.customPrimaryColor,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                  ],
-                ),
+                ],
               ),
             ),
           ),
