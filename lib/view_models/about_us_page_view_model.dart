@@ -1,7 +1,7 @@
 import 'package:Samaaj/web_services/backend_web_services.dart';
 import 'package:flutter/cupertino.dart';
 
-class AboutUsPageViewModel extends ChangeNotifier {
+class ContactUsPageViewModel extends ChangeNotifier {
 
   BackendWebServices _backendWebServices = BackendWebServices();
 
@@ -28,7 +28,16 @@ class AboutUsPageViewModel extends ChangeNotifier {
             email: email,
             name: name,
           );
+        } else {
+          await _backendWebServices.postMessage(
+            message: message,
+            email: email,
+            name: name,
+          );
         }
+        this.isError = "";
+        cancelLoading();
+        return;
       } catch(e) {
         print(e);
         if(e.toString() == "api-call-failed") {
@@ -37,8 +46,9 @@ class AboutUsPageViewModel extends ChangeNotifier {
           this.isError = "Please Enter A Valid Phone Number";
         }
       }
+      cancelLoading();
+      return;
     }
-    cancelLoading();
   }
 
   resetError() {

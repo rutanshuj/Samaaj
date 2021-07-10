@@ -169,13 +169,29 @@ class BackendWebServices {
 
   Future<void> postMessage({String message, String name, num phoneNumber, String email}) async {
     Uri _uri = Uri.https(Constants.SECURED_ENDPOINT, Constants.postMessage);
+    print(Constants.SECURED_ENDPOINT + Constants.postMessage);
     print("here");
-    Map body = {
-      "email": email,
-      "mobileNo": phoneNumber,
-      "name": name,
-      "messageBody": message,
-    };
+    Map body;
+    if(phoneNumber == null) {
+      body =  {
+        "email": email,
+        "name": name,
+        "messageBody": message,
+      };
+    } else if(email == null) {
+      body = {
+        "mobileNo": phoneNumber,
+        "name": name,
+        "messageBody": message,
+      };
+    } else {
+      body = {
+        "email": email,
+        "mobileNo": phoneNumber,
+        "name": name,
+        "messageBody": message,
+      };
+    }
     final reqBody = jsonEncode(body);
     print(reqBody);
     Response _res = await post(
@@ -187,8 +203,8 @@ class BackendWebServices {
     );
 
     if(_res.statusCode != 200) {
+      print(_res.body);
       throw Exception("api-call-failed");
     }
   }
-
 }
