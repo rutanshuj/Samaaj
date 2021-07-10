@@ -1,7 +1,7 @@
 import 'package:Samaaj/UI/pages/about_us_page.dart';
+import 'package:Samaaj/UI/pages/contact_us_page.dart';
 import 'package:Samaaj/UI/widgets/category_display_widget.dart';
 import 'package:Samaaj/UI/widgets/custom_search_box.dart';
-import 'package:Samaaj/UI/widgets/debug_category_display_widget.dart';
 import 'package:Samaaj/UI/widgets/search_category_display_widget.dart';
 import 'package:Samaaj/utils/constants.dart';
 import 'package:Samaaj/view_models/about_us_page_view_model.dart';
@@ -230,10 +230,10 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 60.0, vertical: 5.0),
+        padding: EdgeInsets.symmetric(horizontal: 60.0, vertical: 3.0),
         child: Container(
-          height: MediaQuery.of(context).size.height * 0.08,
-          width: MediaQuery.of(context).size.width * 0.60,
+          height: MediaQuery.of(context).size.height * 0.085,
+          width: MediaQuery.of(context).size.width * 0.7,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30.0),
           ),
@@ -248,65 +248,101 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      InkWell(
-                        child: Icon(
-                          Icons.home_outlined,
-                          size: 30.0,
-                          color: Colors.white,
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        InkWell(
+                          child: Icon(
+                            Icons.home_outlined,
+                            size: 30.0,
+                            color: Colors.white,
+                          ),
+                          onTap: () {
+                            _vm.resetScreen();
+                          },
                         ),
-                        onTap: () {
-                          _vm.resetScreen();
-                        },
-                      ),
-                      Text(
-                        'Home',
-                        style: TextStyle(
-                          fontSize: 12.0,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      )
-                    ],
+                        Text(
+                          'Home',
+                          style: TextStyle(
+                            fontSize: 12.0,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      InkWell(
-                        child: Icon(
-                          Icons.info_outline,
-                          size: 30.0,
-                          color: Colors.white,
-                        ),
-                        onTap: () {
-                          Navigator.push(
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        InkWell(
+                          child: Icon(
+                            Icons.info_outline,
+                            size: 30.0,
+                            color: Colors.white,
+                          ),
+                          onTap: () {
+                            Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) {
-                                    return ChangeNotifierProvider(
-                                      create: (context) {
-                                        return AboutUsPageViewModel();
-                                      },
-                                      builder: (context, _) {
-                                        return AboutUsPage();
-                                      },
-                                    );
-                                  }
+                                builder: (context) {
+                                  return AboutUsPage();
+                                }
                               )
-                          );
-                        },
-                      ),
-                      Text(
-                        'About Us',
-                        style: TextStyle(
-                          fontSize: 12.0,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
+                            );
+                          },
                         ),
-                      )
-                    ],
+                        Text(
+                          'About Us',
+                          style: TextStyle(
+                            fontSize: 12.0,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        InkWell(
+                          child: Icon(
+                            Icons.message_outlined,
+                            size: 30.0,
+                            color: Colors.white,
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) {
+                                      return ChangeNotifierProvider(
+                                        create: (context) {
+                                          return ContactUsPageViewModel();
+                                        },
+                                        builder: (context, _) {
+                                          return ContactUsPage();
+                                        },
+                                      );
+                                    }
+                                )
+                            );
+                          },
+                        ),
+                        Text(
+                          'Contact Us',
+                          style: TextStyle(
+                            fontSize: 12.0,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ],
               ),
