@@ -41,3 +41,6 @@ app.*.symbols
 app.*.map.json
 
 android/src/upload-keystore.jks
+
+#Samaaj Certificate
+samaaj_cert.p12
