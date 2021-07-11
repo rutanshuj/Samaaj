@@ -16,13 +16,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   TextEditingController _tagController = TextEditingController();
 
   @override
   void initState() {
     // TODO: implement initState
-    final _vm = Provider.of<MasterCategoryListViewModel>(context, listen: false);
+    final _vm =
+        Provider.of<MasterCategoryListViewModel>(context, listen: false);
     _vm.getMasterCategoryList();
     super.initState();
   }
@@ -32,25 +32,38 @@ class _HomePageState extends State<HomePage> {
     final _vm = Provider.of<MasterCategoryListViewModel>(context);
     return Scaffold(
       appBar: AppBar(
+          toolbarHeight: 180,
           backgroundColor: Constants.customPrimaryColor,
           title: Padding(
             padding: EdgeInsets.only(top: 4.0),
-            child: Row(
+            child: Column(
               children: [
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.06,
-                  child: Image.asset(
-                    Constants.appLogo,
-                    fit: BoxFit.contain,
+                Row(children: [
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.06,
+                    child: Image.asset(
+                      Constants.appLogo,
+                      fit: BoxFit.contain,
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 5.0,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text('Samaaj'),
-                ),
+                  SizedBox(
+                    height: 5.0,
+                  ),
+                  Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(3.0),
+                          child: Text('Samaaj'),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(3.0),
+                          child: Text(
+                              'Hello Powai ! Your Utilities at your fingertips',
+                              style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
+                        ),
+                      ]),
+                ]),
               ],
             ),
           ),
@@ -63,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                 CustomSearchBox(
                   hintText: 'Search for Category',
                   onChanged: (String value) {
-                    if(value.isNotEmpty) {
+                    if (value.isNotEmpty) {
                       _vm.getCategoryDataBySearch(tag: value);
                     } else {
                       _vm.resetScreen();
@@ -76,159 +89,158 @@ class _HomePageState extends State<HomePage> {
                     'Choose Your Category',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 24.0,
+                        fontSize: 20.0,
                         color: Colors.white),
                   ),
                 ),
               ],
             ),
           )),
-      body: !_vm.isLoading ?
-      Stack(
-        children: [
-          SingleChildScrollView(
-            child: !_vm.isSearched ? Column(
+      body: !_vm.isLoading
+          ? Stack(
               children: [
-                ListView.builder(
-                  itemCount: _vm.masterCategoryList.length,
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    return ChangeNotifierProvider(
-                      create: (context) {
-                        return SubCategoryListViewModel();
-                      },
-                      builder: (context, snapshot) {
-                        return CategoryDisplayWidget(
-                          masterCategoryViewModel: _vm.masterCategoryList[index],
-                        );
-                      }
-                    );
-                  },
-                ),
+                SingleChildScrollView(
+                  child: !_vm.isSearched
+                      ? Column(
+                          children: [
+                            ListView.builder(
+                              itemCount: _vm.masterCategoryList.length,
+                              shrinkWrap: true,
+                              physics: NeverScrollableScrollPhysics(),
+                              itemBuilder: (context, index) {
+                                return ChangeNotifierProvider(
+                                    create: (context) {
+                                  return SubCategoryListViewModel();
+                                }, builder: (context, snapshot) {
+                                  return CategoryDisplayWidget(
+                                    masterCategoryViewModel:
+                                        _vm.masterCategoryList[index],
+                                  );
+                                });
+                              },
+                            ),
 
-                ///This column is to keep the static content in the app
-                ///When all the content is dynamic, remove this column.
-                // Column(
-                //   crossAxisAlignment: CrossAxisAlignment.stretch,
-                //   children: [
-                //     DebugCategoryDisplayWidget(
-                //       title: 'People',
-                //       categoryDetails: [
-                //         {
-                //           'type': 'vendor',
-                //           'name': 'Vegetable Vendors',
-                //           'assetSVGPath': 'assets/svg_icons/shop.svg',
-                //         },
-                //         {
-                //           'type': 'vendor',
-                //           'name': 'Dhobi',
-                //           'assetSVGPath': 'assets/svg_icons/dhobi.svg',
-                //         },
-                //         {
-                //           'type': 'vendor',
-                //           'name': 'Presswala',
-                //           'assetSVGPath':
-                //           'assets/svg_icons/ironing-board.svg',
-                //         },
-                //         {
-                //           'type': 'vendor',
-                //           'name': 'Domestic Help',
-                //           'assetSVGPath': 'assets/svg_icons/mop.svg',
-                //         },
-                //         {
-                //           'type': 'vendor',
-                //           'name': 'Drivers',
-                //           'assetSVGPath': 'assets/svg_icons/driver.svg',
-                //         },
-                //         {
-                //           'type': 'vendor',
-                //           'name': 'Security Gaurds',
-                //           'assetSVGPath': 'assets/svg_icons/policeman.svg',
-                //         },
-                //         {
-                //           'type': 'vendor',
-                //           'name': 'Plumbers',
-                //           'assetSVGPath': 'assets/svg_icons/plumber.svg',
-                //         },
-                //         {
-                //           'type': 'vendor',
-                //           'name': 'Electricians',
-                //           'assetSVGPath': 'assets/svg_icons/electrician.svg',
-                //         },
-                //       ],
-                //     ),
-                //     // DebugCategoryDisplayWidget(
-                //     //   title: 'Events and Entertainment',
-                //     //   categoryDetails: [
-                //     //     {
-                //     //       'type': 'vendor',
-                //     //       'name': 'Dance Performers',
-                //     //       'assetSVGPath': 'assets/svg_icons/dance.svg',
-                //     //     },
-                //     //     {
-                //     //       'type': 'vendor',
-                //     //       'name': 'Singers',
-                //     //       'assetSVGPath': 'assets/svg_icons/singer.svg',
-                //     //     },
-                //     //     {
-                //     //       'type': 'vendor',
-                //     //       'name': 'Stand Up Comedians',
-                //     //       'assetSVGPath':
-                //     //       'assets/svg_icons/standup_comedian.svg',
-                //     //     },
-                //     //     {
-                //     //       'type': 'vendor',
-                //     //       'name': 'Anchors',
-                //     //       'assetSVGPath': 'assets/svg_icons/anchors.svg',
-                //     //     },
-                //     //     {
-                //     //       'type': 'vendor',
-                //     //       'name': 'Magicians',
-                //     //       'assetSVGPath': 'assets/svg_icons/magician.svg',
-                //     //     },
-                //     //     {
-                //     //       'type': 'vendor',
-                //     //       'name': 'Event Organizers',
-                //     //       'assetSVGPath':
-                //     //       'assets/svg_icons/event_organizers.svg',
-                //     //     },
-                //     //   ],
-                //     // ),
-                //   ],
-                // ),
+                            ///This column is to keep the static content in the app
+                            ///When all the content is dynamic, remove this column.
+                            // Column(
+                            //   crossAxisAlignment: CrossAxisAlignment.stretch,
+                            //   children: [
+                            //     DebugCategoryDisplayWidget(
+                            //       title: 'People',
+                            //       categoryDetails: [
+                            //         {
+                            //           'type': 'vendor',
+                            //           'name': 'Vegetable Vendors',
+                            //           'assetSVGPath': 'assets/svg_icons/shop.svg',
+                            //         },
+                            //         {
+                            //           'type': 'vendor',
+                            //           'name': 'Dhobi',
+                            //           'assetSVGPath': 'assets/svg_icons/dhobi.svg',
+                            //         },
+                            //         {
+                            //           'type': 'vendor',
+                            //           'name': 'Presswala',
+                            //           'assetSVGPath':
+                            //           'assets/svg_icons/ironing-board.svg',
+                            //         },
+                            //         {
+                            //           'type': 'vendor',
+                            //           'name': 'Domestic Help',
+                            //           'assetSVGPath': 'assets/svg_icons/mop.svg',
+                            //         },
+                            //         {
+                            //           'type': 'vendor',
+                            //           'name': 'Drivers',
+                            //           'assetSVGPath': 'assets/svg_icons/driver.svg',
+                            //         },
+                            //         {
+                            //           'type': 'vendor',
+                            //           'name': 'Security Gaurds',
+                            //           'assetSVGPath': 'assets/svg_icons/policeman.svg',
+                            //         },
+                            //         {
+                            //           'type': 'vendor',
+                            //           'name': 'Plumbers',
+                            //           'assetSVGPath': 'assets/svg_icons/plumber.svg',
+                            //         },
+                            //         {
+                            //           'type': 'vendor',
+                            //           'name': 'Electricians',
+                            //           'assetSVGPath': 'assets/svg_icons/electrician.svg',
+                            //         },
+                            //       ],
+                            //     ),
+                            //     // DebugCategoryDisplayWidget(
+                            //     //   title: 'Events and Entertainment',
+                            //     //   categoryDetails: [
+                            //     //     {
+                            //     //       'type': 'vendor',
+                            //     //       'name': 'Dance Performers',
+                            //     //       'assetSVGPath': 'assets/svg_icons/dance.svg',
+                            //     //     },
+                            //     //     {
+                            //     //       'type': 'vendor',
+                            //     //       'name': 'Singers',
+                            //     //       'assetSVGPath': 'assets/svg_icons/singer.svg',
+                            //     //     },
+                            //     //     {
+                            //     //       'type': 'vendor',
+                            //     //       'name': 'Stand Up Comedians',
+                            //     //       'assetSVGPath':
+                            //     //       'assets/svg_icons/standup_comedian.svg',
+                            //     //     },
+                            //     //     {
+                            //     //       'type': 'vendor',
+                            //     //       'name': 'Anchors',
+                            //     //       'assetSVGPath': 'assets/svg_icons/anchors.svg',
+                            //     //     },
+                            //     //     {
+                            //     //       'type': 'vendor',
+                            //     //       'name': 'Magicians',
+                            //     //       'assetSVGPath': 'assets/svg_icons/magician.svg',
+                            //     //     },
+                            //     //     {
+                            //     //       'type': 'vendor',
+                            //     //       'name': 'Event Organizers',
+                            //     //       'assetSVGPath':
+                            //     //       'assets/svg_icons/event_organizers.svg',
+                            //     //     },
+                            //     //   ],
+                            //     // ),
+                            //   ],
+                            // ),
+                          ],
+                        )
+                      : _vm.searchResultantList.isNotEmpty
+                          ? ListView.builder(
+                              shrinkWrap: true,
+                              physics: NeverScrollableScrollPhysics(),
+                              itemCount: _vm.searchResultantList.length,
+                              itemBuilder: (context, index) {
+                                return SearchCategoryDisplayWidget(
+                                  categoryData: _vm.searchResultantList[index],
+                                );
+                              },
+                            )
+                          : Center(
+                              child: Text(
+                                "No Matching Options Found!",
+                                style: TextStyle(
+                                  fontSize: 18.0,
+                                  color: Constants.customPrimaryColor,
+                                ),
+                              ),
+                            ),
+                ),
               ],
             )
-                :
-            _vm.searchResultantList.isNotEmpty ? ListView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: _vm.searchResultantList.length,
-              itemBuilder: (context, index) {
-                return SearchCategoryDisplayWidget(
-                  categoryData: _vm.searchResultantList[index],
-                );
-              },
-            )
-                :
-            Center(
-              child: Text(
-                "No Matching Options Found!",
-                style: TextStyle(
-                  fontSize: 18.0,
-                  color: Constants.customPrimaryColor,
-                ),
+          : Center(
+              child: CircularProgressIndicator(
+                valueColor:
+                    AlwaysStoppedAnimation<Color>(Constants.customPrimaryColor),
               ),
             ),
-          ),
-        ],
-      )
-          :
-      Center(
-        child: CircularProgressIndicator(
-          valueColor: AlwaysStoppedAnimation<Color>(Constants.customPrimaryColor),
-        ),
-      ),
       bottomNavigationBar: Padding(
         padding: EdgeInsets.symmetric(horizontal: 60.0, vertical: 3.0),
         child: Container(
@@ -284,14 +296,10 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.white,
                           ),
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return AboutUsPage();
-                                }
-                              )
-                            );
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return AboutUsPage();
+                            }));
                           },
                         ),
                         Text(
@@ -316,21 +324,17 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.white,
                           ),
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) {
-                                      return ChangeNotifierProvider(
-                                        create: (context) {
-                                          return ContactUsPageViewModel();
-                                        },
-                                        builder: (context, _) {
-                                          return ContactUsPage();
-                                        },
-                                      );
-                                    }
-                                )
-                            );
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return ChangeNotifierProvider(
+                                create: (context) {
+                                  return ContactUsPageViewModel();
+                                },
+                                builder: (context, _) {
+                                  return ContactUsPage();
+                                },
+                              );
+                            }));
                           },
                         ),
                         Text(
